@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Lightbulb, Send, User, Mail, FileText, Zap, CheckCircle, AlertCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 interface FormData {
   name: string;
@@ -57,8 +58,20 @@ export const SubmitIdeas = () => {
     setIsSubmitting(true);
 
     try {
-      // Simulate API call - replace with actual Supabase edge function
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      const { data, error } = await supabase.functions.invoke('submit-idea', {
+        body: {
+          name: formData.name,
+          email: formData.email,
+          ideaTitle: formData.ideaTitle,
+          ideaDescription: formData.ideaDescription,
+          category: formData.category,
+        },
+      });
+
+      if (error) {
+        console.error('Submission error:', error);
+        throw error;
+      }
       
       setSubmitted(true);
       toast({
@@ -75,6 +88,7 @@ export const SubmitIdeas = () => {
         category: ""
       });
     } catch (error) {
+      console.error('Error submitting idea:', error);
       toast({
         title: "Submission Failed",
         description: "Please try again or contact the club administrators",

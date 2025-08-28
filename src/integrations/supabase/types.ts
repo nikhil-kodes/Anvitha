@@ -111,6 +111,51 @@ export type Database = {
         }
         Relationships: []
       }
+      idea_submissions: {
+        Row: {
+          category: string | null
+          created_at: string
+          email: string
+          id: string
+          idea_description: string
+          idea_title: string
+          name: string
+          reviewed_at: string | null
+          reviewer_notes: string | null
+          status: string | null
+          submitted_at: string
+          updated_at: string
+        }
+        Insert: {
+          category?: string | null
+          created_at?: string
+          email: string
+          id?: string
+          idea_description: string
+          idea_title: string
+          name: string
+          reviewed_at?: string | null
+          reviewer_notes?: string | null
+          status?: string | null
+          submitted_at?: string
+          updated_at?: string
+        }
+        Update: {
+          category?: string | null
+          created_at?: string
+          email?: string
+          id?: string
+          idea_description?: string
+          idea_title?: string
+          name?: string
+          reviewed_at?: string | null
+          reviewer_notes?: string | null
+          status?: string | null
+          submitted_at?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           created_at: string

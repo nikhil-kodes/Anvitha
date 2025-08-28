@@ -1,97 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Futuristic Sci-Fi Design System for Anvitha ECE Club */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
+    /* Sci-Fi Color Palette */
+    --background: 0 0% 4%;
+    --foreground: 120 100% 80%;
+    
+    --space-black: 0 0% 4%;
+    --deep-space: 240 10% 8%;
+    --cyber-green: 120 100% 50%;
+    --neon-green: 120 100% 65%;
+    --electric-blue: 195 100% 70%;
+    --metallic-gray: 210 10% 40%;
+    --dark-panel: 240 15% 12%;
+    --glow-green: 120 100% 80%;
+    
+    /* Component Colors */
+    --card: 240 15% 12%;
+    --card-foreground: 120 100% 80%;
+    --card-border: 120 80% 35%;
+    
+    --primary: 120 100% 50%;
+    --primary-foreground: 0 0% 4%;
+    --primary-glow: 120 100% 65%;
+    
+    --secondary: 240 15% 18%;
+    --secondary-foreground: 120 100% 80%;
+    --secondary-glow: 120 60% 40%;
+    
+    --accent: 195 100% 70%;
+    --accent-foreground: 0 0% 4%;
+    
+    --muted: 240 10% 15%;
+    --muted-foreground: 210 10% 60%;
+    
+    --destructive: 0 100% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 120 60% 25%;
+    --input: 240 15% 18%;
+    --ring: 120 100% 50%;
+    
+    /* Design System Gradients */
+    --gradient-cyber: linear-gradient(135deg, hsl(var(--cyber-green)), hsl(var(--neon-green)));
+    --gradient-circuit: linear-gradient(90deg, transparent, hsl(var(--cyber-green) / 0.3), transparent);
+    --gradient-panel: linear-gradient(145deg, hsl(var(--dark-panel)), hsl(var(--space-black)));
+    --gradient-glow: radial-gradient(circle, hsl(var(--cyber-green) / 0.4), transparent 70%);
+    
+    /* Shadows */
+    --shadow-neon: 0 0 20px hsl(var(--cyber-green) / 0.6);
+    --shadow-glow: 0 0 40px hsl(var(--cyber-green) / 0.4);
+    --shadow-deep: 0 10px 30px hsl(var(--space-black) / 0.8);
+    
+    /* Borders */
+    --border-glow: 1px solid hsl(var(--cyber-green) / 0.6);
+    --border-neon: 2px solid hsl(var(--cyber-green));
+    
     --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
+}
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+@layer base {
+  * {
+    @apply border-border;
   }
+  
+  body {
+    @apply bg-space-black text-foreground font-exo overflow-x-hidden;
+    background-image: 
+      radial-gradient(circle at 20% 80%, hsl(var(--cyber-green) / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(var(--electric-blue) / 0.1) 0%, transparent 50%);
+  }
+  
+  /* Circuit Board Background Pattern */
+  .circuit-bg {
+    background-image: 
+      linear-gradient(90deg, hsl(var(--cyber-green) / 0.1) 1px, transparent 1px),
+      linear-gradient(180deg, hsl(var(--cyber-green) / 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+  
+  /* Animated Circuit Lines */
+  .circuit-flow {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .circuit-flow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-circuit);
+    animation: circuit-pulse 3s linear infinite;
+  }
+  
+  /* Typography */
+  .font-orbitron {
+    font-family: 'Orbitron', monospace;
+  }
+  
+  .font-exo {
+    font-family: 'Exo 2', sans-serif;
+  }
+  
+  /* Neon Text Effects */
+  .text-neon {
+    color: hsl(var(--cyber-green));
+    text-shadow: 
+      0 0 5px hsl(var(--cyber-green) / 0.8),
+      0 0 10px hsl(var(--cyber-green) / 0.6),
+      0 0 15px hsl(var(--cyber-green) / 0.4);
+  }
+  
+  .text-glow {
+    color: hsl(var(--glow-green));
+    text-shadow: 
+      0 0 10px hsl(var(--cyber-green) / 0.8),
+      0 0 20px hsl(var(--cyber-green) / 0.6),
+      0 0 30px hsl(var(--cyber-green) / 0.4);
+  }
+}
+
+@layer components {
+  /* Holographic Cards */
+  .holo-card {
+    @apply bg-card border border-card-border rounded-lg backdrop-blur-sm;
+    background: linear-gradient(145deg, hsl(var(--card)), hsl(var(--deep-space)));
+    border-image: linear-gradient(45deg, hsl(var(--cyber-green) / 0.6), hsl(var(--electric-blue) / 0.4)) 1;
+    box-shadow: var(--shadow-neon);
+  }
+  
+  /* Neon Buttons */
+  .btn-cyber {
+    @apply px-6 py-3 bg-transparent border-2 border-cyber-green text-cyber-green font-orbitron font-bold rounded-lg relative overflow-hidden transition-all duration-300;
+    text-shadow: 0 0 10px hsl(var(--cyber-green));
+    box-shadow: 
+      inset 0 0 10px hsl(var(--cyber-green) / 0.2),
+      0 0 20px hsl(var(--cyber-green) / 0.4);
+  }
+  
+  .btn-cyber::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, hsl(var(--cyber-green) / 0.4), transparent);
+    transition: left 0.5s;
+  }
+  
+  .btn-cyber:hover::before {
+    left: 100%;
+  }
+  
+  .btn-cyber:hover {
+    @apply text-space-black bg-cyber-green;
+    box-shadow: 
+      inset 0 0 20px hsl(var(--cyber-green) / 0.3),
+      0 0 40px hsl(var(--cyber-green) / 0.6);
+  }
+  
+  /* Gate Panels */
+  .gate-panel {
+    background: linear-gradient(145deg, hsl(var(--dark-panel)), hsl(var(--space-black)));
+    border: 2px solid hsl(var(--cyber-green) / 0.6);
+    box-shadow: 
+      inset 0 0 30px hsl(var(--cyber-green) / 0.2),
+      0 0 50px hsl(var(--cyber-green) / 0.4);
+  }
+}
+
+@keyframes circuit-pulse {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+@keyframes neon-pulse {
+  0%, 100% { 
+    text-shadow: 
+      0 0 5px hsl(var(--cyber-green) / 0.8),
+      0 0 10px hsl(var(--cyber-green) / 0.6),
+      0 0 15px hsl(var(--cyber-green) / 0.4);
+  }
+  50% { 
+    text-shadow: 
+      0 0 10px hsl(var(--cyber-green)),
+      0 0 20px hsl(var(--cyber-green) / 0.8),
+      0 0 30px hsl(var(--cyber-green) / 0.6);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { 
+    box-shadow: 0 0 20px hsl(var(--cyber-green) / 0.4);
+  }
+  50% { 
+    box-shadow: 0 0 40px hsl(var(--cyber-green) / 0.8);
+  }
+}
+
+.animate-neon-pulse {
+  animation: neon-pulse 2s ease-in-out infinite;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
 }
 
 @layer base {

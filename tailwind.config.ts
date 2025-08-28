@@ -24,13 +24,26 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				
+				// Sci-Fi Theme Colors
+				'space-black': 'hsl(var(--space-black))',
+				'deep-space': 'hsl(var(--deep-space))',
+				'cyber-green': 'hsl(var(--cyber-green))',
+				'neon-green': 'hsl(var(--neon-green))',
+				'electric-blue': 'hsl(var(--electric-blue))',
+				'metallic-gray': 'hsl(var(--metallic-gray))',
+				'dark-panel': 'hsl(var(--dark-panel))',
+				'glow-green': 'hsl(var(--glow-green))',
+				
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					foreground: 'hsl(var(--primary-foreground))',
+					glow: 'hsl(var(--primary-glow))'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
-					foreground: 'hsl(var(--secondary-foreground))'
+					foreground: 'hsl(var(--secondary-foreground))',
+					glow: 'hsl(var(--secondary-glow))'
 				},
 				destructive: {
 					DEFAULT: 'hsl(var(--destructive))',
@@ -50,7 +63,8 @@ export default {
 				},
 				card: {
 					DEFAULT: 'hsl(var(--card))',
-					foreground: 'hsl(var(--card-foreground))'
+					foreground: 'hsl(var(--card-foreground))',
+					border: 'hsl(var(--card-border))'
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
@@ -62,6 +76,10 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				}
+			},
+			fontFamily: {
+				orbitron: ['Orbitron', 'monospace'],
+				exo: ['Exo 2', 'sans-serif']
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import circuitBg from "@/assets/circuit-bg.jpg";
+import logo from "@/assets/anvithaLogo.png";
 
 interface GateAnimationProps {
 	onComplete: () => void;
@@ -69,19 +70,22 @@ export const GateAnimation = ({ onComplete }: GateAnimationProps) => {
 			</motion.div>
 
 			{/* Central Loading Element */}
-			<div className="absolute inset-0 flex items-center justify-center">
+			<div className="absolute inset-0 flex items-center justify-center flex-col">
 				<motion.div
 					className="text-center"
 					initial={{ opacity: 0, scale: 0.8 }}
 					animate={{ opacity: 1, scale: 1 }}
 					transition={{ duration: 1, delay: 0.5 }}>
+					<img
+						className="size-20 mx-auto"
+						src={logo}></img>
 					<div className="font-orbitron text-4xl font-bold text-neon mb-4 animate-neon-pulse">
 						ANVITHA ECE CLUB
 					</div>
 					<div className="text-cyber-green text-lg font-exo tracking-widest">
 						[ INITIALIZING SYSTEM ]
 					</div>
-
+	
 					{/* Loading Bars */}
 					<div className="mt-8 space-y-2 flex justify-center">
 						<motion.div

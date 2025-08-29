@@ -10,74 +10,82 @@ import {
 	AlertCircle,
 } from "lucide-react";
 import { format } from "date-fns";
+import { Link } from "react-router-dom";
 
 const upcomingEvents = [
-	{
-		id: 1,
-		title: "IoT Innovation Workshop",
-		date: new Date("2025-01-15"),
-		time: "10:00 AM - 4:00 PM",
-		location: "ECE Lab Block A",
-		type: "Workshop",
-		description:
-			"Hands-on workshop on IoT device development using ESP32 and sensor networks.",
-		maxParticipants: 50,
-		registered: 35,
-		status: "active",
-		isHighlighted: true,
-	},
-	{
-		id: 2,
-		title: "Circuit Design Competition",
-		date: new Date("2025-01-22"),
-		time: "2:00 PM - 6:00 PM",
-		location: "Main Auditorium",
-		type: "Competition",
-		description:
-			"Design innovative analog and digital circuits to solve real-world problems.",
-		maxParticipants: 80,
-		registered: 42,
-		status: "active",
-		isHighlighted: true,
-	},
-	{
-		id: 3,
-		title: "Industry Expert Talk: 5G & Beyond",
-		date: new Date("2025-02-05"),
-		time: "3:00 PM - 5:00 PM",
-		location: "Seminar Hall",
-		type: "Seminar",
-		description:
-			"Guest lecture by industry experts on the future of wireless communication.",
-		maxParticipants: 200,
-		registered: 156,
-		status: "active",
-		isHighlighted: false,
-	},
+	// {
+	// 	id: 1,
+	// 	title: "IoT Innovation Workshop",
+	// 	date: new Date("2025-01-15"),
+	// 	time: "10:00 AM - 4:00 PM",
+	// 	location: "ECE Lab Block A",
+	// 	type: "Workshop",
+	// 	description:
+	// 		"Hands-on workshop on IoT device development using ESP32 and sensor networks.",
+	// 	maxParticipants: 50,
+	// 	registered: 35,
+	// 	status: "active",
+	// 	isHighlighted: true,
+	// },
+	// {
+	// 	id: 2,
+	// 	title: "Circuit Design Competition",
+	// 	date: new Date("2025-01-22"),
+	// 	time: "2:00 PM - 6:00 PM",
+	// 	location: "Main Auditorium",
+	// 	type: "Competition",
+	// 	description:
+	// 		"Design innovative analog and digital circuits to solve real-world problems.",
+	// 	maxParticipants: 80,
+	// 	registered: 42,
+	// 	status: "active",
+	// 	isHighlighted: true,
+	// },
+	// {
+	// 	id: 3,
+	// 	title: "Industry Expert Talk: 5G & Beyond",
+	// 	date: new Date("2025-02-05"),
+	// 	time: "3:00 PM - 5:00 PM",
+	// 	location: "Seminar Hall",
+	// 	type: "Seminar",
+	// 	description:
+	// 		"Guest lecture by industry experts on the future of wireless communication.",
+	// 	maxParticipants: 200,
+	// 	registered: 156,
+	// 	status: "active",
+	// 	isHighlighted: false,
+	// },
 ];
 
 const pastEvents = [
 	{
-		title: "PCB Design Masterclass",
-		date: new Date("2024-12-10"),
-		type: "Workshop",
-		participants: 45,
-		success: true,
-	},
-	{
-		title: "Robotics Hackathon 2024",
-		date: new Date("2024-11-25"),
-		type: "Hackathon",
-		participants: 120,
-		success: true,
-	},
-	{
-		title: "AI in Electronics Symposium",
-		date: new Date("2024-10-18"),
-		type: "Symposium",
-		participants: 200,
-		success: true,
-	},
+		title:"2nd Year Orientation",
+		date: new Date("2025-08-27"),
+		type:"Orientation",
+		participants: 150,
+		success: true
+	}
+	// {
+	// 	title: "PCB Design Masterclass",
+	// 	date: new Date("2024-12-10"),
+	// 	type: "Workshop",
+	// 	participants: 45,
+	// 	success: true,
+	// },
+	// {
+	// 	title: "Robotics Hackathon 2024",
+	// 	date: new Date("2024-11-25"),
+	// 	type: "Hackathon",
+	// 	participants: 120,
+	// 	success: true,
+	// },
+	// {
+	// 	title: "AI in Electronics Symposium",
+	// 	date: new Date("2024-10-18"),
+	// 	type: "Symposium",
+	// 	participants: 200,
+	// 	success: true,
+	// },
 ];
 
 export const Events = () => {
@@ -93,11 +101,11 @@ export const Events = () => {
 					transition={{ duration: 0.8 }}
 					className="text-center mb-16">
 					<div className="flex items-center justify-center mb-6">
-						<Calendar className="w-16 h-16 text-cyber-green animate-glow-pulse mr-4" />
+						<Calendar className="w-16 h-16 text-cyber-green mr-4" />
 						<h1 className="font-orbitron font-black text-5xl md:text-7xl text-glow animate-neon-pulse">
 							EVENTS
 						</h1>
-						<Calendar className="w-16 h-16 text-cyber-green animate-glow-pulse ml-4" />
+						<Calendar className="w-16 h-16 text-cyber-green ml-4" />
 					</div>
 					<p className="text-xl text-glow-green/80 font-exo max-w-3xl mx-auto">
 						Discover exciting workshops, competitions, and seminars that push
@@ -134,7 +142,7 @@ export const Events = () => {
 				</motion.div>
 
 				{/* Upcoming Events */}
-				{activeTab === "upcoming" && (
+				{activeTab === "upcoming" && upcomingEvents.length != 0 &&(
 					<motion.div
 						initial={{ opacity: 0, y: 40 }}
 						animate={{ opacity: 1, y: 0 }}
@@ -239,6 +247,10 @@ export const Events = () => {
 					</motion.div>
 				)}
 
+				{activeTab =="upcoming" && upcomingEvents.length == 0 && (
+					<motion.div initial={{opacity:0, y:30}} animate={{opacity:1, y:0}} transition={{delay:0.8, duration:0.5}} className="text-5xl font-orbitron text-center text-cyber-green font-black">Coming Soon...</motion.div>
+				)}
+
 				{/* Past Events */}
 				{activeTab === "past" && (
 					<motion.div
@@ -252,13 +264,13 @@ export const Events = () => {
 								initial={{ opacity: 0, scale: 0.9 }}
 								animate={{ opacity: 1, scale: 1 }}
 								transition={{ delay: 0.1 * index, duration: 0.6 }}
-								className="holo-card p-6 group hover:scale-105 transition-all duration-300">
+								className="holo-card p-6 group hover:shadow-[0_0_10px_white] transition-all duration-300">
 								<div className="flex items-center justify-between mb-4">
 									<div
 										className={`px-3 py-1 rounded-full text-sm font-bold ${
 											event.type === "Workshop"
 												? "bg-cyber-green/20 text-cyber-green"
-												: event.type === "Hackathon"
+												: event.type === "Hackathon" || event.type === "Orie	ntation"
 												? "bg-electric-blue/20 text-electric-blue"
 												: "bg-neon-green/20 text-neon-green"
 										}`}>
@@ -303,7 +315,7 @@ export const Events = () => {
 					transition={{ delay: 0.8, duration: 0.8 }}
 					className="mt-20 text-center">
 					<div className="holo-card p-8 max-w-2xl mx-auto">
-						<Zap className="w-12 h-12 text-cyber-green mx-auto mb-4 animate-glow-pulse" />
+						<Zap className="w-12 h-12 text-cyber-green mx-auto mb-4" />
 						<h2 className="font-orbitron font-bold text-2xl text-neon-green mb-4">
 							Want to Suggest an Event?
 						</h2>
@@ -312,7 +324,7 @@ export const Events = () => {
 							Share your suggestions and help us create amazing learning
 							experiences.
 						</p>
-						<button className="btn-cyber">Submit Event Idea</button>
+						<Link to="/submit-ideas"><button className="btn-cyber">Submit Event Idea</button></Link>
 					</div>
 				</motion.div>
 			</div>

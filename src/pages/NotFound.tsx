@@ -28,7 +28,7 @@ const NotFound = () => {
 						transition={{ duration: 1, ease: "easeOut" }}
 						className="mb-8">
 						<div className="w-24 h-24 bg-cyber-green/20 rounded-full flex items-center justify-center mx-auto mb-6">
-							<AlertTriangle className="w-12 h-12 text-cyber-green animate-pulse" />
+							<AlertTriangle className="w-12 h-12 text-cyber-green" />
 						</div>
 
 						<h1 className="font-orbitron font-black text-8xl text-glow mb-4 animate-neon-pulse">

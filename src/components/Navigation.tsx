@@ -6,7 +6,7 @@ import Logo from "@/assets/anvithaLogo.png";
 
 const navItems = [
 	{ name: "Home", path: "/", icon: Zap },
-	{ name: "Position Holders", path: "/positions", icon: Users },
+	{ name: "The Team", path: "/positions", icon: Users },
 	{ name: "Hall of Fame", path: "/hall-of-fame", icon: Trophy },
 	{ name: "Events", path: "/events", icon: Calendar },
 	{ name: "Submit Ideas", path: "/submit-ideas", icon: Lightbulb },

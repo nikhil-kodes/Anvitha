@@ -184,11 +184,11 @@ export const SubmitIdeas = () => {
 					transition={{ duration: 0.8 }}
 					className="text-center mb-16">
 					<div className="flex items-center justify-center mb-6">
-						<Lightbulb className="w-16 h-16 text-cyber-green animate-glow-pulse mr-4" />
+						<Lightbulb className="w-16 h-16 text-cyber-green mr-4" />
 						<h1 className="font-orbitron font-black text-5xl md:text-7xl text-glow animate-neon-pulse">
 							SUBMIT IDEAS
 						</h1>
-						<Lightbulb className="w-16 h-16 text-cyber-green animate-glow-pulse ml-4" />
+						<Lightbulb className="w-16 h-16 text-cyber-green  ml-4" />
 					</div>
 					<p className="text-xl text-glow-green/80 font-exo max-w-3xl mx-auto">
 						Share your innovative ECE project ideas with us. From IoT solutions

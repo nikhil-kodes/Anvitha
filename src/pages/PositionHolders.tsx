@@ -1,10 +1,13 @@
 import { motion } from "framer-motion";
 import { Crown, Shield, Users, Star, Briefcase } from "lucide-react";
+import shilpa from "@/assets/dr_shilpa_chaoudhary.png";
+import smriti from "@/assets/dr_smriti_sachan.png";
+import rishabh from "@/assets/mr_rishabh_yadav.png";
 
 const positions = [
 	{
 		role: "President",
-		name: "Anvitha Reddy",
+		name: "Akshat Jain",
 		email: "president@anvithaclub.edu",
 		icon: Crown,
 		description: "Leading the club with vision and innovation",
@@ -12,7 +15,7 @@ const positions = [
 	},
 	{
 		role: "Vice President",
-		name: "Rahul Kumar",
+		name: "Asmit Singh",
 		email: "vp@anvithaclub.edu",
 		icon: Shield,
 		description: "Supporting leadership and strategic initiatives",
@@ -20,7 +23,7 @@ const positions = [
 	},
 	{
 		role: "Secretary",
-		name: "Priya Sharma",
+		name: "Shriman Nivas",
 		email: "secretary@anvithaclub.edu",
 		icon: Briefcase,
 		description: "Managing administrative operations and documentation",
@@ -28,31 +31,29 @@ const positions = [
 	},
 	{
 		role: "Joint Secretary",
-		name: "Arjun Patel",
+		name: "Tanya Goel",
 		email: "jointsec@anvithaclub.edu",
 		icon: Users,
 		description: "Coordinating member activities and communications",
 		color: "cyber-green",
 	},
-	{
-		role: "Technical Director",
-		name: "Sneha Gupta",
-		email: "technical@anvithaclub.edu",
-		icon: Star,
-		description: "Overseeing technical projects and innovations",
-		color: "electric-blue",
-	},
-	{
-		role: "Events Director",
-		name: "Vikram Singh",
-		email: "events@anvithaclub.edu",
-		icon: Star,
-		description: "Planning and executing club events and workshops",
-		color: "neon-green",
-	},
 ];
 
 export const PositionHolders = () => {
+	const faculty = [
+		{
+			image: shilpa,
+			name: "Dr Shilpa Choudhary",
+		},
+		{
+			image: smriti,
+			name: "Dr Smriti Sachan",
+		},
+		{
+			image: rishabh,
+			name: "Mr Rishabh Yadav",
+		},
+	];
 	return (
 		<div className="min-h-screen py-20 px-4">
 			<div className="container mx-auto max-w-6xl">
@@ -62,8 +63,8 @@ export const PositionHolders = () => {
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.8 }}
 					className="text-center mb-16">
-					<h1 className="font-orbitron font-black text-5xl md:text-7xl text-glow mb-6 animate-neon-pulse">
-						POSITION HOLDERS
+					<h1 className="font-orbitron font-bold text-white text-5xl md:text-7xl text-glow mb-6 animate-neon-pulse">
+						The Team
 					</h1>
 					<p className="text-xl text-glow-green/80 font-exo max-w-2xl mx-auto">
 						Meet the brilliant minds leading Anvitha ECE Club into the future of
@@ -71,12 +72,37 @@ export const PositionHolders = () => {
 					</p>
 				</motion.div>
 
+				<motion.div
+					initial={{ opacity: 0, y: 30 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={{ delay: 0.3, duration: 0.8 }}
+					className="flex flex-col gap-5 my-10">
+					<h1 className="text-5xl font-bold font-orbitron relative"><div className="absolute h-0.5 w-full bg-gradient-to-r from-electric-blue to-transparent bottom-0"></div>Faculty Co-Ordinators</h1>
+					<motion.div
+						initial={{ opacity: 0, y: 30 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ delay: 0.1, duration: 0.4 }}
+						className="grid sm:grid-cols-1 md:grid-cols-3 gap-5">
+						{faculty.map((faculty) => {
+							return (
+								<div className="flex flex-col items-center gap-5  justify-center">
+									<img
+										className="h-64 rounded-lg border-4 border-white shadow-[0_0_10px_white] hover:shadow-[0_0_10px_#39FF14]"
+										src={faculty.image}
+									/>
+									<h2 className="text-xl bg-[#1DB954] px-4 py-2 text-white font-bold rounded-3xl border-2 border-white ">{faculty.name}</h2>
+								</div>
+							);
+						})}
+					</motion.div>
+				</motion.div>
+
 				{/* Position Cards Grid */}
 				<motion.div
 					initial={{ opacity: 0, y: 40 }}
 					animate={{ opacity: 1, y: 0 }}
-					transition={{ delay: 0.3, duration: 0.8 }}
-					className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+					transition={{ delay: 1.1, duration: 0.8 }}
+					className="grid sm:grid-cols-1 md:grid-cols-2 gap-8">
 					{positions.map((position, index) => {
 						const Icon = position.icon;
 
@@ -195,7 +221,6 @@ export const PositionHolders = () => {
 						))}
 					</div>
 				</motion.div>
-				
 			</div>
 		</div>
 	);

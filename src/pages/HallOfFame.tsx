@@ -82,11 +82,11 @@ export const HallOfFame = () => {
 					transition={{ duration: 0.8 }}
 					className="text-center mb-16">
 					<div className="flex items-center justify-center mb-6">
-						<Trophy className="w-16 h-16 text-cyber-green animate-glow-pulse mr-4" />
+						<Trophy className="w-16 h-16 text-cyber-green mr-4" />
 						<h1 className="font-orbitron font-black text-5xl md:text-7xl text-glow animate-neon-pulse">
 							HALL OF FAME
 						</h1>
-						<Trophy className="w-16 h-16 text-cyber-green animate-glow-pulse ml-4" />
+						<Trophy className="w-16 h-16 text-cyber-green ml-4" />
 					</div>
 					<p className="text-xl text-glow-green/80 font-exo max-w-3xl mx-auto">
 						Honoring the legendary leaders who shaped Anvitha ECE Club's legacy

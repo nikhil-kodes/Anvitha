@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Zap, Target, Cpu, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import logo from "@/assets/anvithaLogo.png";
+import hod from "@/assets/HOD.jpg";
 
 export const Home = () => {
 	const anvitha = [
@@ -51,11 +53,15 @@ export const Home = () => {
 				{/* Main Title */}
 				<div className="mb-8">
 					<motion.h1
-						className="font-orbitron font-black text-6xl md:text-8xl text-white mb-6 animate-neon-pulse"
+						className="font-orbitron font-black text-6xl md:text-8xl text-white mb-6 animate-neon-pulse "
 						initial={{ scale: 0.8 }}
 						animate={{ scale: 1 }}
 						transition={{ duration: 1.2, ease: "easeOut" }}>
-						ANVITHA CLUB
+						<img
+							className="size-28 mx-auto mt-5"
+							src={logo}
+						/>
+						<p className="mt-5">ANVITHA CLUB</p>
 					</motion.h1>
 
 					<motion.div
@@ -167,8 +173,8 @@ export const Home = () => {
 					transition={{ delay: 2, duration: 0.8 }}>
 					<div className="flex items-center gap-5 flex-col w-full">
 						<h1 className="relative text-white  text-7xl w-full font-bold">
-							Know the Club!!
-							<div className="absolute bottom-0 h-[2px] w-full bg-gradient-to-r from-cyber-green to-transparent"></div>
+							Know Your Club!!
+							<div className="absolute bottom-0 h-1 w-full bg-gradient-to-r from-transparent via-electric-blue to-transparent"></div>
 						</h1>
 						<div>
 							<p className="text-left">
@@ -209,8 +215,30 @@ export const Home = () => {
 					initial={{ opacity: 0, y: 30 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ delay: 2, duration: 1 }}
-					className="mt-10">
-					<h1></h1>
+					className="my-10 flex flex-col gap-5">
+					<h1 className="relative text-6xl flex font-bold text-white font-orbitron">
+						<div className="absolute h-1 rounded-lg w-full bg-gradient-to-r from-electric-blue to-transparent bottom-0"></div>
+						Head of the Department
+					</h1>
+					<div className="flex gap-8 justify-between">
+						<img
+							src={hod}
+							className="border-4 h-60 border-neon-green shadow-[0_0_10px_#39FF14] rounded-xl "
+						></img>
+						<p className="text-start">
+							He has received Bachelor of Engineering degree in Electronics and
+							Communication Engineering from IEI Calcutta, India, Masters of
+							Engineering with specialization in VLSI Design from UPTU Lucknow
+							and Ph.D. from NIT Kurukshetra. He has served 17 years in Indian
+							Air Force for installation, operation & maintenance of various
+							radars and communication's equipment. His aim in life is ‘Work is
+							Worship’. He has authored 41 research papers in reputed journals.
+							He has held several administrative and academic positions during
+							42 years of experience. His current research interests include
+							network planning, designing and optimization of cellular networks.
+							He is a member of ISTE and AMIE.
+						</p>
+					</div>
 				</motion.div>
 			</motion.div>
 		</div>

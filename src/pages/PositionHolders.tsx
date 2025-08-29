@@ -195,6 +195,7 @@ export const PositionHolders = () => {
 						))}
 					</div>
 				</motion.div>
+				
 			</div>
 		</div>
 	);

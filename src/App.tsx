@@ -12,6 +12,7 @@ import { HallOfFame } from "./pages/HallOfFame";
 import { Events } from "./pages/Events";
 import { SubmitIdeas } from "./pages/SubmitIdeas";
 import NotFound from "./pages/NotFound";
+import Footer from "./components/Footer";
 
 const queryClient = new QueryClient();
 
@@ -75,6 +76,7 @@ const App = () => {
 							/>
 						</Routes>
 					</Layout>
+					<Footer />
 				</BrowserRouter>
 			</TooltipProvider>
 		</QueryClientProvider>

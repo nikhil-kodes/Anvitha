@@ -1,72 +1,106 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700&display=swap');
+@import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Tailwind v4 Theme Configuration */
+@theme {
+  --default-font-family: "Exo 2", sans-serif;
+  --default-mono-font-family: "Orbitron", monospace;
+  
+  /* Container Configuration */
+  --container-center: true;
+  --container-padding: 2rem;
+  --container-2xl: 1400px;
+  
+  /* Border Radius */
+  --radius: 0.5rem;
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+  
+  /* Color System - Sci-Fi Theme */
+  --color-space-black: 0 0% 4%;
+  --color-deep-space: 240 10% 8%;
+  --color-cyber-green: 120 100% 50%;
+  --color-neon-green: 120 100% 65%;
+  --color-electric-blue: 195 100% 70%;
+  --color-metallic-gray: 210 10% 40%;
+  --color-dark-panel: 240 15% 12%;
+  --color-glow-green: 120 100% 80%;
+  
+  /* Semantic Colors */
+  --color-background: var(--color-space-black);
+  --color-foreground: 120 100% 80%;
+  
+  --color-primary: var(--color-cyber-green);
+  --color-primary-foreground: var(--color-space-black);
+  --color-primary-glow: var(--color-neon-green);
+  
+  --color-secondary: 240 15% 18%;
+  --color-secondary-foreground: 120 100% 80%;
+  --color-secondary-glow: 120 60% 40%;
+  
+  --color-accent: var(--color-electric-blue);
+  --color-accent-foreground: var(--color-space-black);
+  
+  --color-muted: 240 10% 15%;
+  --color-muted-foreground: 210 10% 60%;
+  
+  --color-destructive: 0 100% 60%;
+  --color-destructive-foreground: 0 0% 100%;
+  
+  --color-border: 120 60% 25%;
+  --color-input: 240 15% 18%;
+  --color-ring: var(--color-cyber-green);
+  
+  --color-card: var(--color-dark-panel);
+  --color-card-foreground: 120 100% 80%;
+  --color-card-border: 120 80% 35%;
+  
+  --color-popover: var(--color-card);
+  --color-popover-foreground: var(--color-card-foreground);
+  
+  /* Sidebar Colors */
+  --color-sidebar-background: var(--color-dark-panel);
+  --color-sidebar-foreground: 120 100% 80%;
+  --color-sidebar-primary: var(--color-cyber-green);
+  --color-sidebar-primary-foreground: var(--color-space-black);
+  --color-sidebar-accent: 240 15% 18%;
+  --color-sidebar-accent-foreground: 120 100% 80%;
+  --color-sidebar-border: 120 60% 25%;
+  --color-sidebar-ring: var(--color-cyber-green);
+  
+  /* Font Families */
+  --font-family-orbitron: "Orbitron", monospace;
+  --font-family-exo: "Exo 2", sans-serif;
+  
+  /* Animations */
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-neon-pulse: neon-pulse 2s ease-in-out infinite;
+  --animate-glow-pulse: glow-pulse 2s ease-in-out infinite;
+  --animate-circulate: circulate 2s linear infinite;
+}
 
 /* Futuristic Sci-Fi Design System for Anvitha ECE Club */
 
 @layer base {
+  /* Design System Gradients and Custom Properties */
   :root {
-    /* Sci-Fi Color Palette */
-    --background: 0 0% 4%;
-    --foreground: 120 100% 80%;
-    
-    --space-black: 0 0% 4%;
-    --deep-space: 240 10% 8%;
-    --cyber-green: 120 100% 50%;
-    --neon-green: 120 100% 65%;
-    --electric-blue: 195 100% 70%;
-    --metallic-gray: 210 10% 40%;
-    --dark-panel: 240 15% 12%;
-    --glow-green: 120 100% 80%;
-    
-    /* Component Colors */
-    --card: 240 15% 12%;
-    --card-foreground: 120 100% 80%;
-    --card-border: 120 80% 35%;
-    
-    --primary: 120 100% 50%;
-    --primary-foreground: 0 0% 4%;
-    --primary-glow: 120 100% 65%;
-    
-    --secondary: 240 15% 18%;
-    --secondary-foreground: 120 100% 80%;
-    --secondary-glow: 120 60% 40%;
-    
-    --accent: 195 100% 70%;
-    --accent-foreground: 0 0% 4%;
-    
-    --muted: 240 10% 15%;
-    --muted-foreground: 210 10% 60%;
-    
-    --destructive: 0 100% 60%;
-    --destructive-foreground: 0 0% 100%;
-    
-    --border: 120 60% 25%;
-    --input: 240 15% 18%;
-    --ring: 120 100% 50%;
-    
-    /* Design System Gradients */
-    --gradient-cyber: linear-gradient(135deg, hsl(var(--cyber-green)), hsl(var(--neon-green)));
-    --gradient-circuit: linear-gradient(90deg, transparent, hsl(var(--cyber-green) / 0.3), transparent);
-    --gradient-panel: linear-gradient(145deg, hsl(var(--dark-panel)), hsl(var(--space-black)));
-    --gradient-glow: radial-gradient(circle, hsl(var(--cyber-green) / 0.4), transparent 70%);
+    --gradient-cyber: linear-gradient(135deg, hsl(var(--color-cyber-green)), hsl(var(--color-neon-green)));
+    --gradient-circuit: linear-gradient(90deg, transparent, hsl(var(--color-cyber-green) / 0.3), transparent);
+    --gradient-panel: linear-gradient(145deg, hsl(var(--color-dark-panel)), hsl(var(--color-space-black)));
+    --gradient-glow: radial-gradient(circle, hsl(var(--color-cyber-green) / 0.4), transparent 70%);
     
     /* Shadows */
-    --shadow-neon: 0 0 20px hsl(var(--cyber-green) / 0.6);
-    --shadow-glow: 0 0 40px hsl(var(--cyber-green) / 0.4);
-    --shadow-deep: 0 10px 30px hsl(var(--space-black) / 0.8);
+    --shadow-neon: 0 0 20px hsl(var(--color-cyber-green) / 0.6);
+    --shadow-glow: 0 0 40px hsl(var(--color-cyber-green) / 0.4);
+    --shadow-deep: 0 10px 30px hsl(var(--color-space-black) / 0.8);
     
     /* Borders */
-    --border-glow: 1px solid hsl(var(--cyber-green) / 0.6);
-    --border-neon: 2px solid hsl(var(--cyber-green));
-    
-    --radius: 0.5rem;
+    --border-glow: 1px solid hsl(var(--color-cyber-green) / 0.6);
+    --border-neon: 2px solid hsl(var(--color-cyber-green));
   }
-}
-
-@layer base {
+  
   * {
     @apply border-border;
   }
@@ -74,15 +108,15 @@
   body {
     @apply bg-space-black text-foreground font-exo overflow-x-hidden;
     background-image: 
-      radial-gradient(circle at 20% 80%, hsl(var(--cyber-green) / 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, hsl(var(--electric-blue) / 0.1) 0%, transparent 50%);
+      radial-gradient(circle at 20% 80%, hsl(var(--color-cyber-green) / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(var(--color-electric-blue) / 0.1) 0%, transparent 50%);
   }
   
   /* Circuit Board Background Pattern */
   .circuit-bg {
     background-image: 
-      linear-gradient(90deg, hsl(var(--cyber-green) / 0.1) 1px, transparent 1px),
-      linear-gradient(180deg, hsl(var(--cyber-green) / 0.1) 1px, transparent 1px);
+      linear-gradient(90deg, hsl(var(--color-cyber-green) / 0.1) 1px, transparent 1px),
+      linear-gradient(180deg, hsl(var(--color-cyber-green) / 0.1) 1px, transparent 1px);
     background-size: 50px 50px;
   }
   
@@ -105,28 +139,28 @@
   
   /* Typography */
   .font-orbitron {
-    font-family: 'Orbitron', monospace;
+    font-family: var(--font-family-orbitron);
   }
   
   .font-exo {
-    font-family: 'Exo 2', sans-serif;
+    font-family: var(--font-family-exo);
   }
   
   /* Neon Text Effects */
   .text-neon {
-    color: hsl(var(--cyber-green));
+    color: hsl(var(--color-cyber-green));
     text-shadow: 
-      0 0 5px hsl(var(--cyber-green) / 0.8),
-      0 0 10px hsl(var(--cyber-green) / 0.6),
-      0 0 15px hsl(var(--cyber-green) / 0.4);
+      0 0 5px hsl(var(--color-cyber-green) / 0.8),
+      0 0 10px hsl(var(--color-cyber-green) / 0.6),
+      0 0 15px hsl(var(--color-cyber-green) / 0.4);
   }
   
   .text-glow {
-    color: hsl(var(--glow-green));
+    color: hsl(var(--color-glow-green));
     text-shadow: 
-      0 0 10px hsl(var(--cyber-green) / 0.8),
-      0 0 20px hsl(var(--cyber-green) / 0.6),
-      0 0 30px hsl(var(--cyber-green) / 0.4);
+      0 0 10px hsl(var(--color-cyber-green) / 0.8),
+      0 0 20px hsl(var(--color-cyber-green) / 0.6),
+      0 0 30px hsl(var(--color-cyber-green) / 0.4);
   }
 }
 
@@ -134,18 +168,18 @@
   /* Holographic Cards */
   .holo-card {
     @apply bg-card border border-card-border rounded-lg backdrop-blur-sm;
-    background: linear-gradient(145deg, hsl(var(--card)), hsl(var(--deep-space)));
-    border-image: linear-gradient(45deg, hsl(var(--cyber-green) / 0.6), hsl(var(--electric-blue) / 0.4)) 1;
+    background: linear-gradient(145deg, hsl(var(--color-card)), hsl(var(--color-deep-space)));
+    border-image: linear-gradient(45deg, hsl(var(--color-cyber-green) / 0.6), hsl(var(--color-electric-blue) / 0.4)) 1;
     box-shadow: var(--shadow-neon);
   }
   
   /* Neon Buttons */
   .btn-cyber {
     @apply px-6 py-3 bg-transparent border-2 border-cyber-green text-cyber-green font-orbitron font-bold rounded-lg relative overflow-hidden transition-all duration-300;
-    text-shadow: 0 0 10px hsl(var(--cyber-green));
+    text-shadow: 0 0 10px hsl(var(--color-cyber-green));
     box-shadow: 
-      inset 0 0 10px hsl(var(--cyber-green) / 0.2),
-      0 0 20px hsl(var(--cyber-green) / 0.4);
+      inset 0 0 10px hsl(var(--color-cyber-green) / 0.2),
+      0 0 20px hsl(var(--color-cyber-green) / 0.4);
   }
   
   .btn-cyber::before {
@@ -155,7 +189,7 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, hsl(var(--cyber-green) / 0.4), transparent);
+    background: linear-gradient(90deg, transparent, hsl(var(--color-cyber-green) / 0.4), transparent);
     transition: left 0.5s;
   }
   
@@ -166,17 +200,17 @@
   .btn-cyber:hover {
     @apply text-space-black bg-cyber-green;
     box-shadow: 
-      inset 0 0 20px hsl(var(--cyber-green) / 0.3),
-      0 0 40px hsl(var(--cyber-green) / 0.6);
+      inset 0 0 20px hsl(var(--color-cyber-green) / 0.3),
+      0 0 40px hsl(var(--color-cyber-green) / 0.6);
   }
   
   /* Gate Panels */
   .gate-panel {
-    background: linear-gradient(145deg, hsl(var(--dark-panel)), hsl(var(--space-black)));
-    border: 2px solid hsl(var(--cyber-green) / 0.6);
+    background: linear-gradient(145deg, hsl(var(--color-dark-panel)), hsl(var(--color-space-black)));
+    border: 2px solid hsl(var(--color-cyber-green) / 0.6);
     box-shadow: 
-      inset 0 0 30px hsl(var(--cyber-green) / 0.2),
-      0 0 50px hsl(var(--cyber-green) / 0.4);
+      inset 0 0 30px hsl(var(--color-cyber-green) / 0.2),
+      0 0 50px hsl(var(--color-cyber-green) / 0.4);
   }
 }
 
@@ -188,42 +222,42 @@
 @keyframes neon-pulse {
   0%, 100% { 
     text-shadow: 
-      0 0 5px hsl(var(--cyber-green) / 0.8),
-      0 0 10px hsl(var(--cyber-green) / 0.6),
-      0 0 15px hsl(var(--cyber-green) / 0.4);
+      0 0 5px hsl(var(--color-cyber-green) / 0.8),
+      0 0 10px hsl(var(--color-cyber-green) / 0.6),
+      0 0 15px hsl(var(--color-cyber-green) / 0.4);
   }
   50% { 
     text-shadow: 
-      0 0 10px hsl(var(--cyber-green)),
-      0 0 20px hsl(var(--cyber-green) / 0.8),
-      0 0 30px hsl(var(--cyber-green) / 0.6);
+      0 0 10px hsl(var(--color-cyber-green)),
+      0 0 20px hsl(var(--color-cyber-green) / 0.8),
+      0 0 30px hsl(var(--color-cyber-green) / 0.6);
   }
 }
 
 @keyframes glow-pulse {
   0%, 100% { 
-    box-shadow: 0 0 20px hsl(var(--cyber-green) / 0.4);
+    box-shadow: 0 0 20px hsl(var(--color-cyber-green) / 0.4);
   }
   50% { 
-    box-shadow: 0 0 40px hsl(var(--cyber-green) / 0.8);
+    box-shadow: 0 0 40px hsl(var(--color-cyber-green) / 0.8);
   }
 }
 
-.animate-neon-pulse {
-  animation: neon-pulse 2s ease-in-out infinite;
-}
-
-.animate-glow-pulse {
-  animation: glow-pulse 2s ease-in-out infinite;
-}
-
-@layer base {
-  * {
-    @apply border-border;
+@keyframes accordion-down {
+  from {
+    height: 0;
   }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
 
-  body {
-    @apply bg-background text-foreground;
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
   }
 }
 
@@ -245,6 +279,14 @@
   }
 }
 
+.animate-neon-pulse {
+  animation: var(--animate-neon-pulse);
+}
+
+.animate-glow-pulse {
+  animation: var(--animate-glow-pulse);
+}
+
 .animate-circulate {
-  animation: circulate 2s linear infinite;
+  animation: var(--animate-circulate);
 }

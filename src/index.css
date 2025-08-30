@@ -167,10 +167,11 @@
 
   /* Holographic Cards */
   .holo-card {
-    @apply bg-card border border-card-border rounded-lg backdrop-blur-sm;
+    @apply bg-card border border-card-border rounded-lg;
     background: linear-gradient(145deg, hsl(var(--color-card)), hsl(var(--color-deep-space)));
     border-image: linear-gradient(45deg, hsl(var(--color-cyber-green) / 0.6), hsl(var(--color-electric-blue) / 0.4)) 1;
     box-shadow: var(--shadow-neon);
+    backdrop-filter: blur(4px);
   }
   
   /* Neon Buttons */

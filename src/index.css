@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700&display=swap');
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 /* CSS Variables */
 :root {
@@ -274,13 +272,13 @@
 }
 
 .animate-neon-pulse {
-  animation: var(--animate-neon-pulse);
+  animation: neon-pulse 2s ease-in-out infinite;
 }
 
 .animate-glow-pulse {
-  animation: var(--animate-glow-pulse);
+  animation: glow-pulse 2s ease-in-out infinite;
 }
 
 .animate-circulate {
-  animation: var(--animate-circulate);
+  animation: circulate 2s linear infinite;
 }

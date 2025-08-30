@@ -69,10 +69,6 @@
   --color-sidebar-border: 120 60% 25%;
   --color-sidebar-ring: var(--color-cyber-green);
   
-  /* Font Families */
-  --font-family-orbitron: "Orbitron", monospace;
-  --font-family-exo: "Exo 2", sans-serif;
-  
   /* Animations */
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
@@ -106,7 +102,8 @@
   }
   
   body {
-    @apply bg-space-black text-foreground font-exo overflow-x-hidden;
+    @apply bg-space-black text-foreground overflow-x-hidden;
+    font-family: "Exo 2", sans-serif;
     background-image: 
       radial-gradient(circle at 20% 80%, hsl(var(--color-cyber-green) / 0.1) 0%, transparent 50%),
       radial-gradient(circle at 80% 20%, hsl(var(--color-electric-blue) / 0.1) 0%, transparent 50%);
@@ -139,11 +136,11 @@
   
   /* Typography */
   .font-orbitron {
-    font-family: var(--font-family-orbitron);
+    font-family: "Orbitron", monospace;
   }
   
   .font-exo {
-    font-family: var(--font-family-exo);
+    font-family: "Exo 2", sans-serif;
   }
   
   /* Neon Text Effects */

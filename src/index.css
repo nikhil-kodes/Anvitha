@@ -1,24 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700&display=swap');
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
-/* Tailwind v4 Theme Configuration */
-@theme {
-  --default-font-family: "Exo 2", sans-serif;
-  --default-mono-font-family: "Orbitron", monospace;
-  
-  /* Font Family Definitions for Utility Classes */
-  --font-family-orbitron: "Orbitron", monospace;
-  --font-family-exo: "Exo 2", sans-serif;
-  
-  /* Container Configuration */
-  --container-center: true;
-  --container-padding: 2rem;
-  --container-2xl: 1400px;
-  
+/* CSS Variables */
+:root {
   /* Border Radius */
   --radius: 0.5rem;
-  --radius-lg: var(--radius);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-sm: calc(var(--radius) - 4px);
   
   /* Color System - Sci-Fi Theme */
   --color-space-black: 0 0% 4%;
@@ -71,16 +59,7 @@
   --color-sidebar-accent-foreground: 120 100% 80%;
   --color-sidebar-border: 120 60% 25%;
   --color-sidebar-ring: var(--color-cyber-green);
-  
-  /* Animations */
-  --animate-accordion-down: accordion-down 0.2s ease-out;
-  --animate-accordion-up: accordion-up 0.2s ease-out;
-  --animate-neon-pulse: neon-pulse 2s ease-in-out infinite;
-  --animate-glow-pulse: glow-pulse 2s ease-in-out infinite;
-  --animate-circulate: circulate 2s linear infinite;
 }
-
-/* Futuristic Sci-Fi Design System for Anvitha ECE Club */
 
 @layer base {
   /* Design System Gradients and Custom Properties */

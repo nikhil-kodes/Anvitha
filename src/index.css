@@ -6,7 +6,7 @@
   --default-font-family: "Exo 2", sans-serif;
   --default-mono-font-family: "Orbitron", monospace;
   
-  /* Font Family Definitions */
+  /* Font Family Definitions for Utility Classes */
   --font-family-orbitron: "Orbitron", monospace;
   --font-family-exo: "Exo 2", sans-serif;
   
@@ -157,6 +157,15 @@
 }
 
 @layer components {
+  /* Font Utilities */
+  .font-orbitron {
+    font-family: "Orbitron", monospace;
+  }
+  
+  .font-exo {
+    font-family: "Exo 2", sans-serif;
+  }
+
   /* Holographic Cards */
   .holo-card {
     @apply bg-card border border-card-border rounded-lg backdrop-blur-sm;
@@ -167,7 +176,8 @@
   
   /* Neon Buttons */
   .btn-cyber {
-    @apply px-6 py-3 bg-transparent border-2 border-cyber-green text-cyber-green font-orbitron font-bold rounded-lg relative overflow-hidden transition-all duration-300;
+    @apply px-6 py-3 bg-transparent border-2 border-cyber-green text-cyber-green font-bold rounded-lg relative overflow-hidden transition-all duration-300;
+    font-family: "Orbitron", monospace;
     text-shadow: 0 0 10px hsl(var(--color-cyber-green));
     box-shadow: 
       inset 0 0 10px hsl(var(--color-cyber-green) / 0.2),

@@ -101,11 +101,13 @@
   }
   
   * {
-    @apply border-border;
+    border-color: hsl(var(--color-border));
   }
   
   body {
-    @apply bg-space-black text-foreground overflow-x-hidden;
+    background-color: hsl(var(--color-space-black));
+    color: hsl(var(--color-foreground));
+    overflow-x: hidden;
     font-family: "Exo 2", sans-serif;
     background-image: 
       radial-gradient(circle at 20% 80%, hsl(var(--color-cyber-green) / 0.1) 0%, transparent 50%),
@@ -167,7 +169,9 @@
 
   /* Holographic Cards */
   .holo-card {
-    @apply bg-card border border-card-border rounded-lg;
+    background-color: hsl(var(--color-card));
+    border: 1px solid hsl(var(--color-card-border));
+    border-radius: 0.5rem;
     background: linear-gradient(145deg, hsl(var(--color-card)), hsl(var(--color-deep-space)));
     border-image: linear-gradient(45deg, hsl(var(--color-cyber-green) / 0.6), hsl(var(--color-electric-blue) / 0.4)) 1;
     box-shadow: var(--shadow-neon);
@@ -176,7 +180,15 @@
   
   /* Neon Buttons */
   .btn-cyber {
-    @apply px-6 py-3 bg-transparent border-2 border-cyber-green text-cyber-green font-bold rounded-lg relative overflow-hidden transition-all duration-300;
+    padding: 0.75rem 1.5rem;
+    background-color: transparent;
+    border: 2px solid hsl(var(--color-cyber-green));
+    color: hsl(var(--color-cyber-green));
+    font-weight: 700;
+    border-radius: 0.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
     font-family: "Orbitron", monospace;
     text-shadow: 0 0 10px hsl(var(--color-cyber-green));
     box-shadow: 
@@ -200,7 +212,8 @@
   }
   
   .btn-cyber:hover {
-    @apply text-space-black bg-cyber-green;
+    color: hsl(var(--color-space-black));
+    background-color: hsl(var(--color-cyber-green));
     box-shadow: 
       inset 0 0 20px hsl(var(--color-cyber-green) / 0.3),
       0 0 40px hsl(var(--color-cyber-green) / 0.6);

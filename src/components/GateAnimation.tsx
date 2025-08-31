@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import circuitBg from "@/assets/circuit-bg.jpg";
-import logo from "@/assets/anvithaLogo.png";
+import circuitBg from "@/assets/circuit-bg.webp";
+import logo from "@/assets/anvithaLogo.webp";
 
 interface GateAnimationProps {
 	onComplete: () => void;

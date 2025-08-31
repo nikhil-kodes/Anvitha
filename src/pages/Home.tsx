@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { Zap, Target, Cpu, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import logo from "@/assets/anvithaLogo.png";
-import hod from "@/assets/HOD.jpg";
+import logo from "@/assets/anvithaLogo.webp";
+import hod from "@/assets/HOD.webp";
 
 export const Home = () => {
 	const anvitha = [

@@ -81,12 +81,12 @@ export const HallOfFame = () => {
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.8 }}
 					className="text-center mb-12 sm:mb-16">
-					<div className="flex flex-col sm:flex-row items-center justify-center mb-4 sm:mb-6 space-y-4 sm:space-y-0">
-						<Trophy className="w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16 text-cyber-green sm:mr-4 order-2 sm:order-1" />
-						<h1 className="font-orbitron font-black text-2xl sm:text-3xl md:text-5xl lg:text-7xl text-glow animate-neon-pulse order-1 sm:order-2">
+					<div className="flex items-center justify-center mb-4 sm:mb-6">
+						<Trophy className="w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16 text-cyber-green sm:mr-4 " />
+						<h1 className="font-orbitron font-black text-2xl sm:text-3xl md:text-5xl lg:text-7xl text-glow animate-neon-pulse ">
 							HALL OF FAME
 						</h1>
-						<Trophy className="w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16 text-cyber-green sm:ml-4 order-3" />
+						<Trophy className="w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16 text-cyber-green sm:ml-4" />
 					</div>
 					<p className="text-sm sm:text-base md:text-lg lg:text-xl text-glow-green/80 font-exo max-w-3xl mx-auto px-4 sm:px-0 leading-relaxed">
 						Honoring the legendary leaders who shaped Anvitha ECE Club's legacy

@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { Navigation } from "./Navigation";
-import circuitBg from "@/assets/circuit-bg.jpg";
+import circuitBg from "@/assets/circuit-bg.webp";
 
 interface LayoutProps {
   children: ReactNode;

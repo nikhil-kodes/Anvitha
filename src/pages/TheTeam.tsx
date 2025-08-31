@@ -11,9 +11,9 @@ import {
 	Send,
 } from "lucide-react";
 import ProfileCard from "@/components/ui/profileCard";
-import shilpa from "@/assets/dr_shilpa_chaoudhary.png";
-import smriti from "@/assets/dr_smriti_sachan.png";
-import rishabh from "@/assets/mr_rishabh_yadav.png";
+import shilpa from "@/assets/dr_shilpa_chaoudhary.webp";
+import smriti from "@/assets/dr_smriti_sachan.webp";
+import rishabh from "@/assets/mr_rishabh_yadav.webp";
 import { Members } from "@/assets/Members";
 import ExecutiveMemberCard from "@/components/ui/executive";
 

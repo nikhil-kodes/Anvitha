@@ -1,14 +1,14 @@
 import React from "react";
-import abhinav from "@/assets/abhinav.jpg";
-import ravi from "@/assets/ravi.jpg";
-import divyam from "@/assets/divyam.jpg";
-import aditi from "@/assets/aditi.jpg";
-import avani from "@/assets/avani.jpg";
-import nidhi from "@/assets/nidhi.jpg";
-import omil from "@/assets/omil.png";
-import riya from "@/assets/riya.jpg";
-import sanjay from "@/assets/sanjay.png";
-import vartika from "@/assets/vartika.jpg";
+import abhinav from "@/assets/abhinav.webp";
+import ravi from "@/assets/ravi.webp";
+import divyam from "@/assets/divyam.webp";
+import aditi from "@/assets/aditi.webp";
+import avani from "@/assets/avani.webp";
+import nidhi from "@/assets/nidhi.webp";
+import omil from "@/assets/omil.webp";
+import riya from "@/assets/riya.webp";
+import sanjay from "@/assets/sanjay.webp";
+import vartika from "@/assets/vartika.webp";
 
 export const Members = () => {
 	return {

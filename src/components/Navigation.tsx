@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Menu, X, Zap, Users, Trophy, Calendar, Lightbulb } from "lucide-react";
-import Logo from "@/assets/anvithaLogo.png";
+import Logo from "@/assets/anvithaLogo.webp";
 
 const navItems = [
 	{ name: "Home", path: "/", icon: Zap },

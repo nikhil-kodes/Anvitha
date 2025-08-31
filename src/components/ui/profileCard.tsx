@@ -7,7 +7,7 @@ type ProfileCardProps = {
 
 export default function ProfileCard({ name, role, image, link }: ProfileCardProps) {
   return (
-    <div className="w-72 bg-white rounded-3xl shadow-lg overflow-hidden">
+    <div className="w-64 bg-white rounded-3xl shadow-lg overflow-hidden">
       {/* Profile Image */}
       {image && (
         <div className="w-full h-60 overflow-hidden">
@@ -34,6 +34,7 @@ export default function ProfileCard({ name, role, image, link }: ProfileCardProp
           {link && (
             <a
               href={link}
+              target="_blank"
               className="mt-4 w-full py-2 bg-neutral-200 text-gray-800 font-medium rounded-xl shadow-sm hover:bg-blue-600 hover:text-white transition"
             >
               Connect

@@ -15,6 +15,7 @@ import shilpa from "@/assets/dr_shilpa_chaoudhary.png";
 import smriti from "@/assets/dr_smriti_sachan.png";
 import rishabh from "@/assets/mr_rishabh_yadav.png";
 import { Members } from "@/assets/Members";
+import ExecutiveMemberCard from "@/components/ui/executive";
 
 const positions = [
 	{
@@ -118,7 +119,7 @@ export const TheTeam = () => {
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ delay: 0.3, duration: 0.8 }}
 					className="flex flex-col gap-5 my-10">
-					<h1 className="text-5xl font-bold font-orbitron relative">
+					<h1 className="text-2xl sm:text-4xl md:text-5xl font-bold font-orbitron relative">
 						<div className="absolute h-0.5 w-full bg-gradient-to-r from-electric-blue to-transparent bottom-0"></div>
 						Faculty Co-Ordinators
 					</h1>
@@ -126,12 +127,14 @@ export const TheTeam = () => {
 						initial={{ opacity: 0, y: 30 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ delay: 0.1, duration: 0.4 }}
-						className="grid sm:grid-cols-1 md:grid-cols-3 gap-5">
-						{faculty.map((faculty) => {
-							return (
-								<ProfileCard name={faculty.name} image={faculty.image}/>
-							);
-						})}
+						className="grid sm:grid-cols-1 md:grid-cols-3 gap-4">
+						{faculty.map((faculty) =>(
+								<ProfileCard
+									name={faculty.name}
+									image={faculty.image}
+								/>
+							)
+						)}
 					</motion.div>
 				</motion.div>
 
@@ -222,7 +225,7 @@ export const TheTeam = () => {
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ delay: 0.8, duration: 0.8 }}
 					className="mt-20 text-center">
-					<h2 className="font-orbitron font-bold text-3xl text-neon-green mb-8">
+					<h2 className="font-orbitron font-bold text-2xl md:text-3xl text-neon-green mb-8">
 						AVENUES
 					</h2>
 					<motion.div
@@ -242,7 +245,7 @@ export const TheTeam = () => {
 								}>
 								<div className="group flex flex-col gap-2">
 									<div className="w-full flex p-4 bg-black relative rounded-lg justify-between items-center">
-										<h1 className="font-orbitron  font-bold text-2xl ">
+										<h1 className="font-orbitron  font-bold text-xl md:text-2xl ">
 											{team} {"Team"}
 										</h1>
 										{isActive[team]?.active === true ? (
@@ -260,17 +263,67 @@ export const TheTeam = () => {
 												duration: 0.3,
 												ease: easeInOut,
 											}}
-											className=" bg-neutral-700/60 flex flex-col relative  rounded-lg	px-5 py-3">
+											className=" bg-neutral-700/60 flex flex-col relative  rounded-lg gap-5 px-5 py-3">
 											<div className="absolute -z-50"></div>
-											<div className="flex gap-5 items-center justify-center">
+											<h2 className="relative text-white text-xl md:text-3xl font-bold font-orbitron">
+												Position Holders
+												<div className="absolute h-0.5 w-full bg-gradient-to-r from-transparent via-sky-500 bottom-0 to-transparent"></div>
+											</h2>
+											<div className="grid sm:grid-cols-1 md:grid-cols-2 gap-5 items-center justify-items-center">
 												{teamDetails.positionHolders.map((entity) => (
-													<ProfileCard name = {entity.name} role={entity.post} image={entity.image} link={entity.socials}/>
+													<ProfileCard
+														name={entity.name}
+														role={entity.post}
+														image={entity.image}
+														link={entity.socials}
+													/>
 												))}
 											</div>
-											<div>
+											<h2 className="relative text-white text-xl md:text-2xl font-bold font-orbitron">
+												Executive Members
+												<div className="absolute h-0.5 bottom-0 w-full bg-gradient-to-r from-transparent via-sky-500 to-transparent"></div>
+											</h2>
+											<motion.div
+												initial={{ opacity: 0, y: 30 }}
+												animate={{ opacity: 1, y: 0 }}
+												transition={{ delay: 0.8, duration: 0.5 }}
+												className={`grid sm:grid-cols-1 ${teamDetails.executiveMembers.length ==1 ? " justify-center grid-cols-1" :"md:grid-cols-2"} items-center gap-5 justify-items-center`}>
 												{teamDetails.executiveMembers.map((entity) => (
-													<div></div>
+													<ExecutiveMemberCard
+														name={entity.name}
+														link={entity.socials}
+													/>
 												))}
+											</motion.div>
+											<h2 className="relative text-white text-lg md:text-xl font-bold font-orbitron">
+												Members
+												<div className="absolute h-0.5 bottom-0 w-full bg-gradient-to-r from-transparent via-sky-500 to-transparent"></div>
+											</h2>
+											<div className="flex items-center justify-center">
+												<table className=" border border-collapse bg-white [&_td]:border  [&_th]:border [&_th]:border-gray-800 [&_td]:border-gray-800 rounded-lg shadow-md border-gray-800">
+													<tr className="text-black text-md md:text-lg">
+														<th>Name</th>
+														<th>Year</th>
+														<th>Socials</th>
+													</tr>
+													{teamDetails.members.map((entity) => (
+														<tr>
+															<td className="text-md md:text-lg font-bold text-neutral-800 px-2 sm:px-4 py-1 sm:py-2">
+																{entity.name}
+															</td>
+															<td className="text-neutral-600 px-1 sm:px-2">
+																{entity.year}
+															</td>
+															<td className="px-2 sm:px-4 py-1 sm:py-2">
+																<a
+																	href={entity.socials}
+																	className="bg-blue-600 px-4 py-2 text-white font-bold rounded-3xl hover:scale-110">
+																	Connect
+																</a>
+															</td>
+														</tr>
+													))}
+												</table>
 											</div>
 										</motion.div>
 									)}

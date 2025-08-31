@@ -89,12 +89,12 @@ export const Navigation = () => {
 										to={item.path}
 										className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-300 ${
 											isActive
-												? "bg-cyber-green text-space-black font-bold"
+												? "bg-white text-space-black font-bold"
 												: "text-glow-green hover:text-cyber-green hover:bg-cyber-green/10"
 										}`}
 										onClick={() => setIsMobileMenuOpen(false)}>
 										<Icon className="w-5 h-5" />
-										<span className="font-exo">{item.name}</span>
+										<span className="font-exo ">{item.name}</span>
 									</Link>
 								);
 							})}

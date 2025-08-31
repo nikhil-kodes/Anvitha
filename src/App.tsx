@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { GateAnimation } from "./components/GateAnimation";
 import { Layout } from "./components/Layout";
 import { Home } from "./pages/Home";
-import { PositionHolders } from "./pages/PositionHolders";
+import { TheTeam } from "./pages/TheTeam";
 import { HallOfFame } from "./pages/HallOfFame";
 import { Events } from "./pages/Events";
 import { SubmitIdeas } from "./pages/SubmitIdeas";
@@ -56,7 +56,7 @@ const App = () => {
 							/>
 							<Route
 								path="/positions"
-								element={<PositionHolders />}
+								element={<TheTeam />}
 							/>
 							<Route
 								path="/hall-of-fame"

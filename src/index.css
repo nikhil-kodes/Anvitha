@@ -248,3 +248,31 @@
 .animate-circulate {
   animation: circulate 2s linear infinite;
 }
+
+.blur-bottom {
+  position: relative;
+  overflow: hidden;
+}
+
+.blur-bottom img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* blurred copy */
+.blur-bottom::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: inherit; /* fallback */
+  backdrop-filter: blur(8px); /* blur strength */
+  
+  /* mask only bottom 30% */
+  -webkit-mask-image: linear-gradient(to bottom, transparent 70%, black 100%);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 100%;
+  mask-image: linear-gradient(to bottom, transparent 70%, black 100%);
+  mask-repeat: no-repeat;
+  mask-size: 100%;
+}

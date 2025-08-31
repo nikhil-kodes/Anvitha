@@ -213,7 +213,7 @@ export const HallOfFame = () => {
 					transition={{ delay: 1.5, duration: 0.8 }}
 					className="mt-20 text-center">
 					<div className="holo-card p-8 max-w-4xl mx-auto">
-						<Trophy className="w-12 h-12 text-cyber-green mx-auto mb-4 animate-glow-pulse" />
+						<Trophy className="w-12 h-12 text-cyber-green mx-auto mb-4" />
 						<h2 className="font-orbitron font-bold text-2xl text-neon-green mb-4">
 							In Memory of Excellence
 						</h2>

@@ -1,8 +1,20 @@
-import { motion } from "framer-motion";
-import { Crown, Shield, Users, Star, Briefcase } from "lucide-react";
+import { useState } from "react";
+import { easeInOut, motion } from "framer-motion";
+import {
+	Crown,
+	Shield,
+	Users,
+	Star,
+	Briefcase,
+	ChevronDown,
+	ChevronUp,
+	Send,
+} from "lucide-react";
+import ProfileCard from "@/components/ui/profileCard";
 import shilpa from "@/assets/dr_shilpa_chaoudhary.png";
 import smriti from "@/assets/dr_smriti_sachan.png";
 import rishabh from "@/assets/mr_rishabh_yadav.png";
+import { Members } from "@/assets/Members";
 
 const positions = [
 	{
@@ -16,7 +28,7 @@ const positions = [
 	{
 		role: "Vice President",
 		name: "Asmit Singh",
-		email: "vp@anvithaclub.edu",
+		email: "ec23081@glbitm.ac.in",
 		icon: Shield,
 		description: "Supporting leadership and strategic initiatives",
 		color: "electric-blue",
@@ -24,7 +36,7 @@ const positions = [
 	{
 		role: "Secretary",
 		name: "Shriman Nivas",
-		email: "secretary@anvithaclub.edu",
+		email: "shrimandeonlyone@gmail.com",
 		icon: Briefcase,
 		description: "Managing administrative operations and documentation",
 		color: "neon-green",
@@ -39,7 +51,7 @@ const positions = [
 	},
 ];
 
-export const PositionHolders = () => {
+export const TheTeam = () => {
 	const faculty = [
 		{
 			image: shilpa,
@@ -54,6 +66,35 @@ export const PositionHolders = () => {
 			name: "Mr Rishabh Yadav",
 		},
 	];
+	const container = {
+		hidden: { opacity: 0 },
+		show: {
+			opacity: 1,
+			transition: {
+				staggerChildren: 0.3, // delay between each div
+				when: "beforeChildren",
+			},
+		},
+	};
+
+	const item = {
+		hidden: { opacity: 0, y: -20 }, // start from slightly above (same point)
+		show: {
+			opacity: 1,
+			y: 0,
+			transition: { duration: 0.6, ease: "easeOut" },
+		},
+	};
+	const teams = Members();
+
+	const [isActive, setIsActive] = useState({
+		Technical: { active: false },
+		Management: { active: false },
+		DAM: { active: false },
+		Photography: { active: false },
+		Editorial: { active: false },
+	});
+
 	return (
 		<div className="min-h-screen py-20 px-4">
 			<div className="container mx-auto max-w-6xl">
@@ -77,7 +118,10 @@ export const PositionHolders = () => {
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ delay: 0.3, duration: 0.8 }}
 					className="flex flex-col gap-5 my-10">
-					<h1 className="text-5xl font-bold font-orbitron relative"><div className="absolute h-0.5 w-full bg-gradient-to-r from-electric-blue to-transparent bottom-0"></div>Faculty Co-Ordinators</h1>
+					<h1 className="text-5xl font-bold font-orbitron relative">
+						<div className="absolute h-0.5 w-full bg-gradient-to-r from-electric-blue to-transparent bottom-0"></div>
+						Faculty Co-Ordinators
+					</h1>
 					<motion.div
 						initial={{ opacity: 0, y: 30 }}
 						animate={{ opacity: 1, y: 0 }}
@@ -85,13 +129,7 @@ export const PositionHolders = () => {
 						className="grid sm:grid-cols-1 md:grid-cols-3 gap-5">
 						{faculty.map((faculty) => {
 							return (
-								<div className="flex flex-col items-center gap-5  justify-center">
-									<img
-										className="h-64 rounded-lg border-4 border-white shadow-[0_0_10px_white] hover:shadow-[0_0_10px_#39FF14]"
-										src={faculty.image}
-									/>
-									<h2 className="text-xl bg-[#1DB954] px-4 py-2 text-white font-bold rounded-3xl border-2 border-white ">{faculty.name}</h2>
-								</div>
+								<ProfileCard name={faculty.name} image={faculty.image}/>
 							);
 						})}
 					</motion.div>
@@ -185,41 +223,61 @@ export const PositionHolders = () => {
 					transition={{ delay: 0.8, duration: 0.8 }}
 					className="mt-20 text-center">
 					<h2 className="font-orbitron font-bold text-3xl text-neon-green mb-8">
-						EXECUTIVE TEAM
+						AVENUES
 					</h2>
-
-					<div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-						{[
-							"Aditya Raj",
-							"Meera Iyer",
-							"Rohan Desai",
-							"Kavya Nair",
-							"Suresh Reddy",
-							"Ananya Das",
-							"Karthik Menon",
-							"Divya Shah",
-						].map((name, index) => (
+					<motion.div
+						variants={container as any}
+						initial="hidden"
+						animate="show"
+						className="flex flex-col gap-5">
+						{Object.entries(teams).map(([team, teamDetails]) => (
 							<motion.div
-								key={name}
-								initial={{ opacity: 0, y: 20 }}
-								animate={{ opacity: 1, y: 0 }}
-								transition={{ delay: 1 + index * 0.1, duration: 0.5 }}
-								className="holo-card p-4 text-center group hover:scale-105 transition-transform duration-300">
-								<div className="w-16 h-16 mx-auto mb-3 bg-gradient-to-br from-metallic-gray/30 to-cyber-green/20 rounded-full flex items-center justify-center">
-									<div className="text-lg font-orbitron font-bold text-cyber-green">
-										{name
-											.split(" ")
-											.map((n) => n[0])
-											.join("")}
+								variants={item as any}
+								key={team}
+								onClick={() =>
+									setIsActive((prev) => ({
+										...prev,
+										[team]: { active: !prev[team].active },
+									}))
+								}>
+								<div className="group flex flex-col gap-2">
+									<div className="w-full flex p-4 bg-black relative rounded-lg justify-between items-center">
+										<h1 className="font-orbitron  font-bold text-2xl ">
+											{team} {"Team"}
+										</h1>
+										{isActive[team]?.active === true ? (
+											<ChevronUp size={30} />
+										) : (
+											<ChevronDown size={30} />
+										)}
 									</div>
+									{isActive[team]?.active === true && (
+										<motion.div
+											initial={{ opacity: 0, y: -10 }}
+											animate={{ opacity: 1, y: 0 }}
+											transition={{
+												delay: 0.3,
+												duration: 0.3,
+												ease: easeInOut,
+											}}
+											className=" bg-neutral-700/60 flex flex-col relative  rounded-lg	px-5 py-3">
+											<div className="absolute -z-50"></div>
+											<div className="flex gap-5 items-center justify-center">
+												{teamDetails.positionHolders.map((entity) => (
+													<ProfileCard name = {entity.name} role={entity.post} image={entity.image} link={entity.socials}/>
+												))}
+											</div>
+											<div>
+												{teamDetails.executiveMembers.map((entity) => (
+													<div></div>
+												))}
+											</div>
+										</motion.div>
+									)}
 								</div>
-								<h4 className="font-exo font-semibold text-glow-green">
-									{name}
-								</h4>
-								<p className="text-glow-green/60 text-sm mt-1">Executive</p>
 							</motion.div>
 						))}
-					</div>
+					</motion.div>
 				</motion.div>
 			</div>
 		</div>

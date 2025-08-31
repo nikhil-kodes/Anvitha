@@ -73,22 +73,22 @@ const hallOfFameMembers = [
 
 export const HallOfFame = () => {
 	return (
-		<div className="min-h-screen py-20 px-4">
+		<div className="min-h-screen py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8">
 			<div className="container mx-auto max-w-6xl">
 				{/* Header */}
 				<motion.div
 					initial={{ opacity: 0, y: 30 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.8 }}
-					className="text-center mb-16">
-					<div className="flex items-center justify-center mb-6">
-						<Trophy className="w-16 h-16 text-cyber-green mr-4" />
-						<h1 className="font-orbitron font-black text-5xl md:text-7xl text-glow animate-neon-pulse">
+					className="text-center mb-12 sm:mb-16">
+					<div className="flex flex-col sm:flex-row items-center justify-center mb-4 sm:mb-6 space-y-4 sm:space-y-0">
+						<Trophy className="w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16 text-cyber-green sm:mr-4 order-2 sm:order-1" />
+						<h1 className="font-orbitron font-black text-2xl sm:text-3xl md:text-5xl lg:text-7xl text-glow animate-neon-pulse order-1 sm:order-2">
 							HALL OF FAME
 						</h1>
-						<Trophy className="w-16 h-16 text-cyber-green ml-4" />
+						<Trophy className="w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16 text-cyber-green sm:ml-4 order-3" />
 					</div>
-					<p className="text-xl text-glow-green/80 font-exo max-w-3xl mx-auto">
+					<p className="text-sm sm:text-base md:text-lg lg:text-xl text-glow-green/80 font-exo max-w-3xl mx-auto px-4 sm:px-0 leading-relaxed">
 						Honoring the legendary leaders who shaped Anvitha ECE Club's legacy
 						of excellence and innovation
 					</p>
@@ -96,11 +96,11 @@ export const HallOfFame = () => {
 
 				{/* Timeline */}
 				<div className="relative">
-					{/* Central Timeline Line */}
-					<div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-cyber-green via-electric-blue to-cyber-green opacity-60" />
+					{/* Central Timeline Line - Hidden on mobile */}
+					<div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-cyber-green via-electric-blue to-cyber-green opacity-60" />
 
 					{/* Timeline Items */}
-					<div className="space-y-16">
+					<div className="space-y-8 sm:space-y-12 md:space-y-16">
 						{hallOfFameMembers.map((member, index) => (
 							<motion.div
 								key={member.name}
@@ -108,14 +108,14 @@ export const HallOfFame = () => {
 								animate={{ opacity: 1, x: 0 }}
 								transition={{ delay: 0.2 * index, duration: 0.8 }}
 								className={`flex items-center ${
-									index % 2 === 0 ? "flex-row" : "flex-row-reverse"
+									index % 2 === 0 ? "md:flex-row flex-col" : "md:flex-row-reverse flex-col"
 								}`}>
 								{/* Content Card */}
-								<div className="w-5/12 relative">
+								<div className="w-full md:w-5/12 relative">
 									<motion.div
-										whileHover={{ scale: 1.02, rotateY: 5 }}
+										whileHover={{ scale: 1.02 }}
 										transition={{ duration: 0.3 }}
-										className="holo-card p-6 relative overflow-hidden group"
+										className="holo-card p-4 sm:p-5 md:p-6 relative overflow-hidden group"
 										style={{
 											background:
 												"linear-gradient(145deg, hsl(var(--dark-panel)), hsl(var(--space-black)))",
@@ -124,83 +124,83 @@ export const HallOfFame = () => {
 										<div className="absolute inset-0 bg-gradient-to-r from-transparent via-cyber-green/30 to-transparent -skew-x-12 -left-full group-hover:left-full transition-all duration-1000" />
 
 										{/* Memorial Badge */}
-										<div className="flex items-center justify-between mb-4">
+										<div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 sm:mb-4 space-y-2 sm:space-y-0">
 											<div className="flex items-center space-x-2">
-												<Award className="w-6 h-6 text-cyber-green" />
-												<span className="font-orbitron font-bold text-cyber-green text-sm">
+												<Award className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-cyber-green" />
+												<span className="font-orbitron font-bold text-cyber-green text-xs sm:text-sm">
 													{member.role}
 												</span>
 											</div>
 											<div className="flex items-center space-x-1 text-glow-green/70">
-												<Clock className="w-4 h-4" />
-												<span className="font-exo text-sm">{member.year}</span>
+												<Clock className="w-3 h-3 sm:w-4 sm:h-4" />
+												<span className="font-exo text-xs sm:text-sm">{member.year}</span>
 											</div>
 										</div>
 
 										{/* Profile */}
-										<div className="flex items-center mb-4">
-											<div className="w-16 h-16 bg-gradient-to-br from-cyber-green/20 to-electric-blue/20 rounded-full flex items-center justify-center mr-4">
-												<div className="text-2xl font-orbitron font-bold text-neon-green">
+										<div className="flex items-center mb-3 sm:mb-4">
+											<div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gradient-to-br from-cyber-green/20 to-electric-blue/20 rounded-full flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
+												<div className="text-base sm:text-lg md:text-2xl font-orbitron font-bold text-neon-green">
 													{member.name
 														.split(" ")
 														.map((n) => n[0])
 														.join("")}
 												</div>
 											</div>
-											<div>
-												<h3 className="font-orbitron font-bold text-xl text-neon-green">
+											<div className="min-w-0 flex-1">
+												<h3 className="font-orbitron font-bold text-base sm:text-lg md:text-xl text-neon-green leading-tight">
 													{member.name}
 												</h3>
-												<p className="text-glow-green/70 font-exo text-sm">
+												<p className="text-glow-green/70 font-exo text-xs sm:text-sm">
 													Legacy Bearer
 												</p>
 											</div>
 										</div>
 
 										{/* Achievements */}
-										<div className="mb-4">
-											<h4 className="font-exo font-bold text-cyber-green mb-2 flex items-center">
-												<Star className="w-4 h-4 mr-2" />
+										<div className="mb-3 sm:mb-4">
+											<h4 className="font-exo font-bold text-cyber-green mb-2 flex items-center text-xs sm:text-sm">
+												<Star className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
 												Key Achievements
 											</h4>
 											<ul className="space-y-1">
 												{member.achievements.map((achievement, i) => (
 													<li
 														key={i}
-														className="text-glow-green/70 font-exo text-sm flex items-start">
-														<div className="w-1.5 h-1.5 bg-cyber-green rounded-full mt-2 mr-3 flex-shrink-0" />
-														{achievement}
+														className="text-glow-green/70 font-exo text-xs sm:text-sm flex items-start">
+														<div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-cyber-green rounded-full mt-1.5 sm:mt-2 mr-2 sm:mr-3 flex-shrink-0" />
+														<span className="leading-relaxed">{achievement}</span>
 													</li>
 												))}
 											</ul>
 										</div>
 
 										{/* Legacy Quote */}
-										<blockquote className="border-l-2 border-cyber-green/50 pl-4 italic text-glow-green/80 font-exo text-sm">
+										<blockquote className="border-l-2 border-cyber-green/50 pl-3 sm:pl-4 italic text-glow-green/80 font-exo text-xs sm:text-sm leading-relaxed">
 											"{member.legacy}"
 										</blockquote>
 
 										{/* Decorative Elements */}
-										<div className="absolute top-4 right-4 opacity-10">
-											<Trophy className="w-8 h-8 text-cyber-green" />
+										<div className="absolute top-3 sm:top-4 right-3 sm:right-4 opacity-10">
+											<Trophy className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-cyber-green" />
 										</div>
 									</motion.div>
 								</div>
 
-								{/* Timeline Node */}
-								<div className="w-2/12 flex justify-center">
+								{/* Timeline Node - Hidden on mobile */}
+								<div className="hidden md:flex w-2/12 justify-center">
 									<motion.div
 										initial={{ scale: 0 }}
 										animate={{ scale: 1 }}
 										transition={{ delay: 0.2 * index + 0.3, duration: 0.5 }}
 										className="relative">
-										<div className="w-6 h-6 bg-cyber-green rounded-full animate-glow-pulse relative z-10" />
+										<div className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-cyber-green rounded-full animate-glow-pulse relative z-10" />
 										<div className="absolute inset-0 bg-cyber-green rounded-full animate-ping" />
 									</motion.div>
 								</div>
 
-								{/* Empty Space for Alternating Layout */}
-								<div className="w-5/12" />
+								{/* Empty Space for Alternating Layout - Hidden on mobile */}
+								<div className="hidden md:block w-5/12" />
 							</motion.div>
 						))}
 					</div>
@@ -211,13 +211,13 @@ export const HallOfFame = () => {
 					initial={{ opacity: 0, y: 40 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ delay: 1.5, duration: 0.8 }}
-					className="mt-20 text-center">
-					<div className="holo-card p-8 max-w-4xl mx-auto">
-						<Trophy className="w-12 h-12 text-cyber-green mx-auto mb-4" />
-						<h2 className="font-orbitron font-bold text-2xl text-neon-green mb-4">
+					className="mt-12 sm:mt-16 md:mt-20 text-center">
+					<div className="holo-card p-4 sm:p-6 md:p-8 max-w-4xl mx-auto">
+						<Trophy className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-cyber-green mx-auto mb-3 sm:mb-4" />
+						<h2 className="font-orbitron font-bold text-lg sm:text-xl md:text-2xl text-neon-green mb-3 sm:mb-4">
 							In Memory of Excellence
 						</h2>
-						<p className="text-glow-green/80 font-exo leading-relaxed">
+						<p className="text-glow-green/80 font-exo leading-relaxed text-sm sm:text-base px-4 sm:px-0">
 							These visionary leaders have left an indelible mark on Anvitha ECE
 							Club. Their dedication, innovation, and leadership continue to
 							inspire current and future generations. Their legacy lives on in
@@ -226,11 +226,11 @@ export const HallOfFame = () => {
 						</p>
 
 						{/* Digital Memorial Lights */}
-						<div className="mt-8 flex justify-center space-x-4">
+						<div className="mt-6 sm:mt-8 flex justify-center space-x-2 sm:space-x-4">
 							{Array.from({ length: 6 }).map((_, i) => (
 								<motion.div
 									key={i}
-									className="w-2 h-8 bg-cyber-green rounded-full"
+									className="w-1.5 h-6 sm:w-2 sm:h-8 bg-cyber-green rounded-full"
 									animate={{ opacity: [0.3, 1, 0.3] }}
 									transition={{
 										duration: 2,

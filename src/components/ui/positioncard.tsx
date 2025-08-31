@@ -21,7 +21,7 @@ export default function PositionCard({
     <div className="w-full max-w-5xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col md:flex-row md:h-64">
       {/* Image Section */}
       <div
-        className={`w-full md:w-1/3 h-64 md:h-auto ${
+        className={`w-full md:w-1/3 h-44 sm:h-64 md:h-auto ${
           side === "right" ? "md:order-2" : ""
         }`}
       >
@@ -42,11 +42,11 @@ export default function PositionCard({
         <p className="text-gray-500 text-sm mt-1">{role}</p>
         <a
           href={`mailto:${mail}`}
-          className="text-blue-600 hover:underline text-sm mt-2"
+          className="text-blue-600 hover:underline block break-words text-sm mt-2"
         >
           {mail}
         </a>
-        <p className="text-gray-700 text-base mt-4 leading-relaxed">
+        <p className="text-gray-700 text-base mt-4 leading-snug sm:leading-relaxed">
           {description}
         </p>
       </div>

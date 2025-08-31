@@ -132,7 +132,7 @@ export const TheTeam = () => {
 						initial={{ opacity: 0, y: 30 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ delay: 0.1, duration: 0.4 }}
-						className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+						className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 justify-items-center">
 						{faculty.map((faculty) =>(
 								<ProfileCard
 									name={faculty.name}
@@ -238,7 +238,7 @@ export const TheTeam = () => {
 												initial={{ opacity: 0, y: 30 }}
 												animate={{ opacity: 1, y: 0 }}
 												transition={{ delay: 0.8, duration: 0.5 }}
-												className={`grid sm:grid-cols-1 ${teamDetails.executiveMembers.length ==1 ? " justify-center grid-cols-1" :"md:grid-cols-2"} items-center gap-5 justify-items-center`}>
+												className={`grid sm:grid-cols-1 ${teamDetails.executiveMembers.length ==1 ? " justify-center grid-cols-1" :"md:grid-cols-2 justify-items-center justify-center"} items-center gap-5 justify-items-center`}>
 												{teamDetails.executiveMembers.map((entity) => (
 													<ExecutiveMemberCard
 														name={entity.name}
@@ -250,19 +250,19 @@ export const TheTeam = () => {
 												Members
 												<div className="absolute h-0.5 bottom-0 w-full bg-gradient-to-r from-transparent via-sky-500 to-transparent"></div>
 											</h2>
-											<div className="flex items-center justify-center overflow-x-auto">
+											<div className="flex items-center justify-center ">
 												<table className="min-w-full border border-collapse bg-white [&_td]:border [&_th]:border [&_th]:border-gray-800 [&_td]:border-gray-800 rounded-lg shadow-md border-gray-800">
-													<tr className="text-black text-sm sm:text-base md:text-lg">
+													<tr className="text-black text-xs sm:text-base md:text-lg">
 														<th className="px-2 sm:px-4 py-2">Name</th>
 														<th className="px-2 sm:px-4 py-2">Year</th>
 														<th className="px-2 sm:px-4 py-2">Socials</th>
 													</tr>
 													{teamDetails.members.map((entity) => (
 														<tr key={entity.name}>
-															<td className="text-sm sm:text-base md:text-lg font-bold text-neutral-800 px-2 sm:px-4 py-1 sm:py-2">
+															<td className="text-[0.5rem] sm:text-base md:text-lg font-bold text-neutral-800 px-2 sm:px-4 py-1 sm:py-2 tracking-tighter leading-tight">
 																{entity.name}
 															</td>
-															<td className="text-neutral-600 px-1 sm:px-2 text-sm sm:text-base">
+															<td className="text-neutral-600 px-1 sm:px-2 text-[0.5rem] sm:text-sm">
 																{entity.year}
 															</td>
 															<td className="px-2 sm:px-4 py-1 sm:py-2">

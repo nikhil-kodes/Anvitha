@@ -13,9 +13,9 @@ export default function ExecutiveMemberCard({ name, link, image }: ExecutiveMemb
   };
 
   return (
-    <div className="w-64 bg-white rounded-3xl shadow-lg overflow-hidden">
+    <div className="w-44 sm:w-64 bg-white rounded-3xl shadow-lg overflow-hidden">
       {/* Profile Section */}
-      <div className="w-full h-44 flex items-center justify-center bg-gray-100">
+      <div className="w-full h-36 sm:h-44 flex items-center justify-center bg-gray-100">
         {image ? (
           <img
             src={image}
@@ -23,7 +23,7 @@ export default function ExecutiveMemberCard({ name, link, image }: ExecutiveMemb
             className="w-full h-full object-cover"
           />
         ) : (
-          <div className="w-24 h-24 flex items-center justify-center rounded-full bg-blue-600 text-white font-bold text-3xl">
+          <div className=" w-20 sm:w-24 h-20 sm:h-24 flex items-center justify-center rounded-full bg-blue-600 text-white font-bold text-3xl">
             {getInitials(name)}
           </div>
         )}

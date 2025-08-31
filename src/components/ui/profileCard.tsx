@@ -7,10 +7,10 @@ type ProfileCardProps = {
 
 export default function ProfileCard({ name, role, image, link }: ProfileCardProps) {
   return (
-    <div className="w-64 bg-white rounded-3xl shadow-lg overflow-hidden">
+    <div className="w-44 sm:w-64 bg-white rounded-3xl shadow-lg overflow-hidden">
       {/* Profile Image */}
       {image && (
-        <div className="w-full h-60 overflow-hidden">
+        <div className="w-full h-52 sm:h-60 overflow-hidden">
           <img
             src={image}
             alt={name || "Profile"}

@@ -16,39 +16,44 @@ import smriti from "@/assets/dr_smriti_sachan.webp";
 import rishabh from "@/assets/mr_rishabh_yadav.webp";
 import { Members } from "@/assets/Members";
 import ExecutiveMemberCard from "@/components/ui/executive";
+import akshat from "@/assets/akshat.webp"
+import shriman from "@/assets/shriman.webp"
+import tanya from "@/assets/tanya.webp"
+import asmit from "@/assets/asmit.webp"
+import Positioncard from "@/components/ui/positioncard"
 
 const positions = [
 	{
 		role: "President",
 		name: "Akshat Jain",
-		email: "president@anvithaclub.edu",
-		icon: Crown,
+		mail: "president@anvithaclub.edu",
+		icon: <Crown />,
 		description: "Leading the club with vision and innovation",
-		color: "cyber-green",
+		image:akshat
 	},
 	{
 		role: "Vice President",
 		name: "Asmit Singh",
-		email: "ec23081@glbitm.ac.in",
-		icon: Shield,
+		mail: "ec23081@glbitm.ac.in",
+		icon: <Shield />,
 		description: "Supporting leadership and strategic initiatives",
-		color: "electric-blue",
+		image:asmit
 	},
 	{
 		role: "Secretary",
 		name: "Shriman Nivas",
-		email: "shrimandeonlyone@gmail.com",
-		icon: Briefcase,
+		mail: "shrimandeonlyone@gmail.com",
+		icon: <Briefcase />,
 		description: "Managing administrative operations and documentation",
-		color: "neon-green",
+		image:shriman
 	},
 	{
 		role: "Joint Secretary",
 		name: "Tanya Goel",
-		email: "jointsec@anvithaclub.edu",
-		icon: Users,
+		mail: "jointsec@anvithaclub.edu",
+		icon: <Users />,
 		description: "Coordinating member activities and communications",
-		color: "cyber-green",
+		image:tanya
 	},
 ];
 
@@ -119,7 +124,7 @@ export const TheTeam = () => {
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ delay: 0.3, duration: 0.8 }}
 					className="flex flex-col gap-5 my-10">
-					<h1 className="text-2xl sm:text-4xl md:text-5xl font-bold font-orbitron relative">
+					<h1 className="text-2xl sm:text-3xl md:text-4xl font-bold font-orbitron relative">
 						<div className="absolute h-0.5 w-full bg-gradient-to-r from-electric-blue to-transparent bottom-0"></div>
 						Faculty Co-Ordinators
 					</h1>
@@ -138,6 +143,8 @@ export const TheTeam = () => {
 					</motion.div>
 				</motion.div>
 
+
+				<h1 className="relative text-5xl font-bold font-orbitron mb-5">Club Officials<div className="absolute h-0.5 w-full bg-gradient-to-r from-electric-blue to-transparent bottom-0"></div></h1>	
 				{/* Position Cards Grid */}
 				<motion.div
 					initial={{ opacity: 0, y: 40 }}
@@ -153,81 +160,25 @@ export const TheTeam = () => {
 								initial={{ opacity: 0, scale: 0.9 }}
 								animate={{ opacity: 1, scale: 1 }}
 								transition={{ delay: 0.1 * index, duration: 0.6 }}
-								className="holo-card p-6 group hover:scale-105 transition-all duration-300 relative overflow-hidden">
+								className="">
 								{/* Background Glow */}
-								<div
-									className={`absolute inset-0 bg-gradient-to-br from-${position.color}/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
-								/>
-
-								{/* Content */}
-								<div className="relative z-10">
-									{/* Role Badge */}
-									<div className="flex items-center justify-between mb-4">
-										<div
-											className={`w-12 h-12 bg-${position.color}/20 rounded-full flex items-center justify-center group-hover:animate-pulse`}>
-											<Icon className={`w-6 h-6 text-${position.color}`} />
-										</div>
-										<div
-											className={`px-3 py-1 bg-${position.color}/20 rounded-full`}>
-											<span
-												className={`text-${position.color} font-exo text-sm font-bold`}>
-												{position.role}
-											</span>
-										</div>
-									</div>
-
-									{/* Profile Image Placeholder */}
-									<div className="w-24 h-24 mx-auto mb-4 bg-gradient-to-br from-cyber-green/30 to-electric-blue/30 rounded-full flex items-center justify-center">
-										<div className="text-4xl font-orbitron font-bold text-neon-green">
-											{position.name
-												.split(" ")
-												.map((n) => n[0])
-												.join("")}
-										</div>
-									</div>
-
-									{/* Name and Contact */}
-									<div className="text-center mb-4">
-										<h3 className="font-orbitron font-bold text-xl text-neon-green mb-2">
-											{position.name}
-										</h3>
-										<a
-											href={`mailto:${position.email}`}
-											className="text-glow-green/70 hover:text-cyber-green transition-colors font-exo text-sm">
-											{position.email}
-										</a>
-									</div>
-
-									{/* Description */}
-									<p className="text-glow-green/60 font-exo text-center text-sm leading-relaxed">
-										{position.description}
-									</p>
-
-									{/* Circuit Lines Decoration */}
-									<div className="mt-6 flex justify-center space-x-2">
-										{Array.from({ length: 3 }).map((_, i) => (
-											<div
-												key={i}
-												className={`w-8 h-0.5 bg-${position.color}/50 circuit-flow`}
-												style={{ animationDelay: `${i * 0.3}s` }}
-											/>
-										))}
-									</div>
-								</div>
+								<Positioncard {...position}/>
+								
 							</motion.div>
 						);
 					})}
 				</motion.div>
-
+<h2 className="font-orbitron  mt-10 mb-5 font-bold text-2xl md:text-3xl text-neon-green relative ">
+						AVENUES
+						<div className="absolute h-0.5 w-full bg-gradient-to-r from-electric-blue to-transparent bottom-0"></div>
+					</h2>
 				{/* Executive Team Section */}
 				<motion.div
 					initial={{ opacity: 0, y: 40 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ delay: 0.8, duration: 0.8 }}
-					className="mt-20 text-center">
-					<h2 className="font-orbitron font-bold text-2xl md:text-3xl text-neon-green mb-8">
-						AVENUES
-					</h2>
+					className=" text-center">
+					
 					<motion.div
 						variants={container as any}
 						initial="hidden"
@@ -269,7 +220,7 @@ export const TheTeam = () => {
 												Position Holders
 												<div className="absolute h-0.5 w-full bg-gradient-to-r from-transparent via-sky-500 bottom-0 to-transparent"></div>
 											</h2>
-											<div className="grid sm:grid-cols-1 md:grid-cols-2 gap-5 items-center justify-items-center">
+											<div className="grid sm:grid-cols-1 md:grid-cols-2 gap-5 items-center justify-center justify-items-center">
 												{teamDetails.positionHolders.map((entity) => (
 													<ProfileCard
 														name={entity.name}

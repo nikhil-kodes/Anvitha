@@ -20,7 +20,7 @@
     --metallic-gray: 210 10% 40%;
     --dark-panel: 240 15% 12%;
     --glow-green: 120 100% 80%;
-    
+    --anvitha-primary: #050a30
     /* Component Colors */
     --card: 240 15% 12%;
     --card-foreground: 120 100% 80%;
@@ -200,6 +200,21 @@
   }
 }
 
+@keyframes navy-pulse {
+  0%, 100% { 
+    text-shadow: 
+      0 0 5px var(--anvitha-primary) / 0.8,
+      0 0 10px var(--anvitha-primary) / 0.6,
+      0 0 15px var(--anvitha-primary) / 0.4;
+  }
+  50% { 
+    text-shadow: 
+      0 0 10px var(--anvitha-primary),
+      0 0 20px var(--anvitha-primary) / 0.8,
+      0 0 30px var(--anvitha-primary) / 0.6;
+  }
+}
+
 @keyframes glow-pulse {
   0%, 100% { 
     box-shadow: 0 0 20px hsl(var(--cyber-green) / 0.4);
@@ -211,6 +226,10 @@
 
 .animate-neon-pulse {
   animation: neon-pulse 2s ease-in-out infinite;
+}
+
+.animate-navy-pulse {
+  animation: navy-pulse 2s ease-in-out infinite;
 }
 
 .animate-glow-pulse {

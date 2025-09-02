@@ -53,7 +53,7 @@ export const Home = () => {
 				{/* Main Title */}
 				<div className="mb-6 sm:mb-8">
 					<motion.h1
-						className="font-orbitron font-black text-3xl sm:text-4xl md:text-6xl lg:text-8xl text-white mb-4 sm:mb-6 animate-neon-pulse"
+						className="font-orbitron font-black text-3xl sm:text-4xl md:text-6xl lg:text-8xl text-white mb-4 sm:mb-6 animate-navy-pulse"
 						initial={{ scale: 0.8 }}
 						animate={{ scale: 1 }}
 						transition={{ duration: 1.2, ease: "easeOut" }}>

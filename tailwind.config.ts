@@ -36,6 +36,7 @@ export default {
 				'metallic-gray': 'hsl(var(--metallic-gray))',
 				'dark-panel': 'hsl(var(--dark-panel))',
 				'glow-green': 'hsl(var(--glow-green))',
+				'anvitha-primary': 'var(--anvitha-primary)',
 				
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',

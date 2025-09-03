@@ -13,6 +13,7 @@ import { Events } from "./pages/Events";
 import { SubmitIdeas } from "./pages/SubmitIdeas";
 import NotFound from "./pages/NotFound";
 import Footer from "./components/Footer";
+import EventGallery from "./pages/EventGallery";
 
 const queryClient = new QueryClient();
 
@@ -69,6 +70,10 @@ const App = () => {
 							<Route
 								path="/submit-ideas"
 								element={<SubmitIdeas />}
+							/>
+							<Route
+								path="/gallery"
+								element={<EventGallery />}
 							/>
 							<Route
 								path="*"

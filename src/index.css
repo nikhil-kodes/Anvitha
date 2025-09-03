@@ -20,7 +20,7 @@
     --metallic-gray: 210 10% 40%;
     --dark-panel: 240 15% 12%;
     --glow-green: 120 100% 80%;
-    --anvitha-primary: #050a30
+    --anvitha-primary: 233 21% 10%;
     /* Component Colors */
     --card: 240 15% 12%;
     --card-foreground: 120 100% 80%;
@@ -203,15 +203,15 @@
 @keyframes navy-pulse {
   0%, 100% { 
     text-shadow: 
-      0 0 5px var(--anvitha-primary) / 0.8,
-      0 0 10px var(--anvitha-primary) / 0.6,
-      0 0 15px var(--anvitha-primary) / 0.4;
+      0 0 5px hsl(var(--anvitha-primary)/0.8),
+      0 0 10px hsl(var(--anvitha-primary)/0.6),
+      0 0 15px hsl(var(--anvitha-primary)/0.4);
   }
   50% { 
     text-shadow: 
-      0 0 10px var(--anvitha-primary),
-      0 0 20px var(--anvitha-primary) / 0.8,
-      0 0 30px var(--anvitha-primary) / 0.6;
+      0 0 10px hsl(var(--anvitha-primary)),
+      0 0 20px hsl(var(--anvitha-primary) / 0.8),
+      0 0 30px hsl(var(--anvitha-primary) / 0.6);
   }
 }
 

@@ -1,7 +1,16 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Menu, X, Zap, Users, Trophy, Calendar, Lightbulb } from "lucide-react";
+import {
+	Menu,
+	X,
+	Zap,
+	Users,
+	Trophy,
+	Calendar,
+	Lightbulb,
+	Image,
+} from "lucide-react";
 import Logo from "@/assets/anvithaLogo.webp";
 
 const navItems = [
@@ -10,6 +19,7 @@ const navItems = [
 	{ name: "Hall of Fame", path: "/hall-of-fame", icon: Trophy },
 	{ name: "Events", path: "/events", icon: Calendar },
 	{ name: "Submit Ideas", path: "/submit-ideas", icon: Lightbulb },
+	{ name: "Gallery", path: "/gallery", icon: Image },
 ];
 
 export const Navigation = () => {
@@ -33,7 +43,7 @@ export const Navigation = () => {
 						</span>
 					</Link>
 
-					<div className="hidden md:flex items-center space-x-2 lg:space-x-8">
+					<div className="hidden md:flex items-center space-x-2 lg:space-x-5">
 						{navItems.map((item) => {
 							const Icon = item.icon;
 							const isActive = location.pathname === item.path;

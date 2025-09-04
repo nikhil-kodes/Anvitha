@@ -14,6 +14,7 @@ import { SubmitIdeas } from "./pages/SubmitIdeas";
 import NotFound from "./pages/NotFound";
 import Footer from "./components/Footer";
 import EventGallery from "./pages/EventGallery";
+import Orientation from "./components/Orientation";
 
 const queryClient = new QueryClient();
 
@@ -74,6 +75,10 @@ const App = () => {
 							<Route
 								path="/gallery"
 								element={<EventGallery />}
+							/>
+							<Route
+								path="/gallery/orientation"
+								element={<Orientation />} 
 							/>
 							<Route
 								path="*"

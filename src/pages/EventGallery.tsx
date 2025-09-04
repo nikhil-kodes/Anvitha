@@ -1,61 +1,33 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
-import { fetchPhotos } from "@/lib/api";
+import { Folder } from "lucide-react";
+import React from "react";
+import { Link } from "react-router-dom";
 
 const EventGallery = () => {
-	const [photos, setPhotos] = useState([]);
-	const [skip, setSkip] = useState(0);
-	const [hasMore, setHasMore] = useState(true);
-	const [loading, setLoading] = useState(false);
-
-	const loadPhotos = useCallback(async () => {
-		if (loading || !hasMore) return;
-
-		setLoading(true);
-		const { files, hasMore: more } = await fetchPhotos(skip);
-
-		setPhotos((prev) => [...prev, ...files]);
-		setHasMore(more);
-		setSkip((prev) => prev + files.length); // move skip forward
-		setLoading(false);
-	}, [skip, hasMore, loading]);
-
-	useEffect(() => {
-		loadPhotos();
-	}, []);
-
-	useEffect(() => {
-		const handleScroll = () => {
-			if (
-				window.innerHeight + window.scrollY >=
-					document.documentElement.scrollHeight - 200 && // near bottom
-				hasMore &&
-				!loading
-			) {
-				loadPhotos();
-			}
-		};
-
-		window.addEventListener("scroll", handleScroll);
-		return () => window.removeEventListener("scroll", handleScroll);
-	}, [hasMore, loading, loadPhotos]);
-
+	const events = [
+		{
+			title: "Anvitha Orientation 2025-26",
+		},
+	];
 	return (
-		<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
-			{photos.map((photo) => (
-				<img
-					key={photo.fileId}
-					src={photo.url}
-					alt={photo.name}
-					className="w-full h-48 object-cover rounded-lg shadow"
-				/>  
-			))}
-
-			{loading && <p className="col-span-full text-center">Loading...</p>}
-			{!hasMore && (
-				<p className="col-span-full text-center text-gray-500">
-					No more images
-				</p>
-			)}
+		<div className=" p-5 bg-black h-screen bg-opacity-40 flex flex-col gap-5">
+			<div>
+				<h1 className="relative text-center text-2xl sm:text-3xl md:text-4xl font-bold text-white font-orbitron">
+					Anvitha Photos Gallery
+					<div className="h-1 w-full absolute bottom-0 bg-gradient-to-r from-transparent via-electric-blue to-transparent"></div>
+				</h1>
+			</div>
+			<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-5 justify-center justify-items-center">
+				{events.map((event, index) => {
+					return (
+						<Link
+							key={index}
+              to="/gallery/orientation"
+							className="border-2 border-electric-blue/50 shadow-md shadow-electric-blue/50 flex px-4 py-2 rounded-lg bg-gradient-to-br from-neutral-500 to-transparent gap-2 text-white hover:scale-105 text-xs sm:text-base md:text-md">
+							{<Folder />} {event.title}
+						</Link>
+					);
+				})}
+			</div>
 		</div>
 	);
 };

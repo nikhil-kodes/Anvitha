@@ -16,6 +16,7 @@ import Footer from "./components/Footer";
 import EventGallery from "./pages/EventGallery";
 import Orientation from "./components/Orientation";
 
+
 const queryClient = new QueryClient();
 
 const App = () => {

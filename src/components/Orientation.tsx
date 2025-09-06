@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import { fetchPhotos } from "@/lib/api";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
+
 const Orientation = () => {
 	const [photos, setPhotos] = useState([]);
 	const [skip, setSkip] = useState(0);
@@ -58,22 +59,23 @@ const Orientation = () => {
 	};
 
 	return (
-		<div className="relative bg-black bg-opacity-70 h-full">
+		<div className="relative bg-black bg-opacity-70 min-h-screen">
+      
 			<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 p-5">
 				{photos.map((photo, index) => (
 					<motion.img
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
-						transition={{ delay: 0.3, duration: 0.5 }}
+						transition={{ delay: 0.3*index, duration: 0.5 }}
 						key={photo.fileId}
 						src={photo.thumbnail}
 						alt={photo.name}
 						onClick={() => openPhoto(index)}
-						className="w-full h-48 object-cover rounded-lg shadow"
+						className="w-full h-48 object-cover rounded-sm shadow border border-white"
 					/>
 				))}
-
-				{loading && <p className="col-span-full text-center">Loading...</p>}
+       
+				{loading && <p className="col-span-full text-white text-2xl animate-pulse text-center">Loading...</p>}
 				{!hasMore && (
 					<p className="col-span-full text-center text-gray-500">
 						No more images
@@ -98,7 +100,7 @@ const Orientation = () => {
 					<img
 						src={photos[selectedIndex].url}
 						alt={photos[selectedIndex].name}
-						className="max-h-[80vh] max-w-[90vw] rounded-lg shadow-lg"
+						className="max-h-[80vh] max-w-[90vw] border-2 border-neutral-200 shadow-lg"
 					/>
 
 					<button

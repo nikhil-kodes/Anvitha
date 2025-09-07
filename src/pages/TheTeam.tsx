@@ -201,19 +201,19 @@ export const TheTeam = () => {
 											<h1 className="font-orbitron text-left font-bold text-gray-900 text-lg sm:text-xl md:text-2xl">
 												{team} {"Team"}
 											</h1>
-											<p className="text-sm text-neutral-600">
+											<p className="text-[0.5rem] sm:text-sm text-left text-neutral-600">
 												{teamDetails.description}
 											</p>
 										</div>
 										{isActive[team]?.active === true ? (
 											<ChevronUp
 												size={24}
-												className="sm:w-[40px] sm:h-[40px] text-gray-900"
+												className="w-[20px] h-[20px] sm:w-[40px] sm:h-[40px] text-gray-900"
 											/>
 										) : (
 											<ChevronDown
 												size={24}
-												className="sm:w-[40px] sm:h-[40px] text-gray-900 "
+												className="w-[20px] h-[20px] sm:w-[40px] sm:h-[40px] text-gray-900 "
 											/>
 										)}
 									</div>

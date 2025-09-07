@@ -57,6 +57,7 @@ const Orientation = () => {
 	const showNext = () => {
 		setSelectedIndex((prev) => (prev < photos.length - 1 ? prev + 1 : prev));
 	};
+	
 
 	return (
 		<div className="relative bg-black bg-opacity-70 min-h-screen">
@@ -73,7 +74,7 @@ const Orientation = () => {
 					<motion.img
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
-						transition={{ delay: 0.3 * index, duration: 0.5 }}
+						transition={{ delay: 0.05 * index, duration: 0.5 }}
 						key={photo.fileId}
 						src={photo.thumbnail}
 						alt={photo.name}
@@ -103,7 +104,7 @@ const Orientation = () => {
 
 					<button
 						onClick={showPrev}
-						className="absolute left-4 text-white py-10 px-2 bg-neutral-600/10 backdrop-blur-lg rounded-md hover:scale-105 hover:bg-neutral-300/10"
+						className="absolute left-2 sm:left-4 text-white py-5 px-1 sm:py-10 sm:px-2 bg-neutral-600/10 backdrop-blur-lg rounded-md hover:scale-105 hover:bg-neutral-300/10"
 						disabled={selectedIndex === 0}>
 						<ChevronLeft />
 					</button>
@@ -111,12 +112,12 @@ const Orientation = () => {
 					<img
 						src={photos[selectedIndex].url}
 						alt={photos[selectedIndex].name}
-						className="max-h-[80vh] max-w-[90vw] border-2 border-neutral-200 shadow-lg"
+						className="max-h-[80vh] max-w-[80vw] border-2 border-neutral-200 shadow-lg"
 					/>
 
 					<button
 						onClick={showNext}
-						className="absolute right-4 text-white py-10 px-2 bg-neutral-600/10 backdrop-blur-lg rounded-md hover:scale-105 hover:bg-neutral-300/10"
+						className="absolute right-2 sm:right-4 text-white py-5 sm:py-10 px-1 sm:px-2 bg-neutral-600/10 backdrop-blur-lg rounded-md hover:scale-105 hover:bg-neutral-300/10"
 						disabled={selectedIndex === photos.length - 1}>
 						<ChevronRight />
 					</button>

@@ -68,7 +68,7 @@ export const Home = () => {
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						transition={{ delay: 0.5, duration: 1 }}
-						className="text-2xl mb-4 sm:mb-6 text-sky-500 mt-2 bg-neutral-200/10 mx-auto backdrop-blur-sm rounded-3xl flex justify-center max-w-xl">
+						className="text-xs p-1 sm:p-2 sm:text-xl md:text-2xl mb-4 sm:mb-6 text-sky-500 mt-2 bg-neutral-200/10 mx-auto backdrop-blur-sm rounded-3xl flex justify-center max-w-xl">
 						Electronics and Communication Engineering Club
 					</motion.h3>
 
@@ -189,11 +189,8 @@ export const Home = () => {
 							<div className="absolute bottom-0 h-0.5 sm:h-1 w-full bg-gradient-to-r from-transparent via-electric-blue to-transparent"></div>
 						</h1>
 						<div className="w-full">
-							<p className="text-center text-xs sm:text-sm md:text-base leading-relaxed text-neutral-200 max-w-4xl mx-auto">
-								THE NAME IMPLIES A SENSE OF HARMONY AND UNIFICATION, SUGGESTING
-								THAT THE INDIVIDUAL MAY POSSESS QUALITIES OF BRINGING PEOPLE
-								TOGETHER, FOSTERING UNDERSTANDING, AND BUILDING BRIDGES OF
-								COMMUNICATION AND COOPERATION.
+							<p className="text-center text-xs sm:text-sm md:text-base font-exo bg-gray-600/30 rounded-lg leading-relaxed text-neutral-200 backdrop-blur-sm max-w-4xl p-3 mx-auto">
+								The name implies a sense of harmony and unification, suggesting that the individual may possess qualities of bringing people together, fostering understanding, and building bridges of communication and cooperation.
 							</p>
 							<div className="relative max-w-xs sm:max-w-sm md:max-w-md mx-auto my-6 sm:my-8 md:my-10">
 								<div className="absolute h-full w-0.5 sm:w-1 bg-gradient-to-b from-blue-500 to-white/60 left-1/2 transform -translate-x-1/2 top-0"></div>

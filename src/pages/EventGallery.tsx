@@ -40,13 +40,13 @@ const EventGallery = () => {
 									src={event.photo}
 									className="h-full w-full object-cover rounded-lg group-hover:scale-105 transition duration-300 "
 								/>
-								<div className="absolute h-full w-full backdrop-blur-0 rounded-lg z-10 bg-gradient-to-b from-black/80 via-transparent  to-black to-90% top-0"></div>
+								<div className="absolute h-full w-full backdrop-blur-0 rounded-lg z-10 bg-gradient-to-b from-black/80 via-transparent  to-black to-85% top-0"></div>
 								<motion.div
 									initial={{ opacity: 0, y: 20 }}
 									animate={{ opacity: 1, y: 0 }}
 									transition={{ delay: 0.5 * index, duration: 0.5 }}
-									className="absolute text-left bottom-4 left-4 items-start flex flex-col  gap-2 z-20">
-									<div className="flex text-white relative text-sm sm:text-lg font-bold gap-2">
+									className="absolute text-left px-4 bottom-2 items-start flex flex-col  gap-2 z-20">
+									<div className="flex text-slate-200 relative text-sm sm:text-lg font-bold gap-2">
 										{<Folder />} {event.title}
 										<div className="h-[1px] w-full bg-neutral-400 bottom-0 absolute"></div>
 									</div>

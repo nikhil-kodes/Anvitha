@@ -148,7 +148,7 @@ const handler = async (req: Request): Promise<Response> => {
     // Send notification email to club administrators
     const adminEmailResponse = await resend.emails.send({
       from: "Anvitha ECE Club <noreply@anvithaclub.dev>",
-      to: ["admin@anvithaclub.dev"], // Replace with actual admin email
+      to: ["anvithaclub@glbitm.ac.in"], // Replace with actual admin email
       subject: `🚀 New Idea Submission: ${ideaData.ideaTitle}`,
       html: `
         <!DOCTYPE html>

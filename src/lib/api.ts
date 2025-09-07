@@ -7,7 +7,7 @@ export const fetchPhotos = async (skip) => {
 				"Content-Type": "application/json",
 			},
 		});
-		console.log("fetching url:", url)
+		
 
 		const json = await response.json();
 

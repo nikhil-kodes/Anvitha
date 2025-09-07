@@ -59,12 +59,13 @@ const upcomingEvents = [
 
 const pastEvents = [
 	{
-		title:"2nd Year Orientation",
+		title: "2nd Year Orientation",
 		date: new Date("2025-08-27"),
-		type:"Orientation",
+		type: "Orientation",
 		participants: 150,
-		success: true
-	}
+		success: true,
+		link: "/gallery/orientation",
+	},
 	// {
 	// 	title: "PCB Design Masterclass",
 	// 	date: new Date("2024-12-10"),
@@ -142,7 +143,7 @@ export const Events = () => {
 				</motion.div>
 
 				{/* Upcoming Events */}
-				{activeTab === "upcoming" && upcomingEvents.length != 0 &&(
+				{activeTab === "upcoming" && upcomingEvents.length != 0 && (
 					<motion.div
 						initial={{ opacity: 0, y: 40 }}
 						animate={{ opacity: 1, y: 0 }}
@@ -247,8 +248,14 @@ export const Events = () => {
 					</motion.div>
 				)}
 
-				{activeTab =="upcoming" && upcomingEvents.length == 0 && (
-					<motion.div initial={{opacity:0, y:30}} animate={{opacity:1, y:0}} transition={{delay:0.8, duration:0.5}} className="text-5xl font-orbitron text-center text-cyber-green font-black">Coming Soon...</motion.div>
+				{activeTab == "upcoming" && upcomingEvents.length == 0 && (
+					<motion.div
+						initial={{ opacity: 0, y: 30 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ delay: 0.8, duration: 0.5 }}
+						className="text-5xl font-orbitron text-center text-cyber-green font-black">
+						Coming Soon...
+					</motion.div>
 				)}
 
 				{/* Past Events */}
@@ -265,44 +272,47 @@ export const Events = () => {
 								animate={{ opacity: 1, scale: 1 }}
 								transition={{ delay: 0.1 * index, duration: 0.6 }}
 								className="holo-card p-6 group hover:shadow-[0_0_10px_white] transition-all duration-300">
-								<div className="flex items-center justify-between mb-4">
-									<div
-										className={`px-3 py-1 rounded-full text-sm font-bold ${
-											event.type === "Workshop"
-												? "bg-cyber-green/20 text-cyber-green"
-												: event.type === "Hackathon" || event.type === "Orie	ntation"
-												? "bg-electric-blue/20 text-electric-blue"
-												: "bg-neon-green/20 text-neon-green"
-										}`}>
-										{event.type}
+								<Link to={event.link}>
+									<div className="flex items-center justify-between mb-4">
+										<div
+											className={`px-3 py-1 rounded-full text-sm font-bold ${
+												event.type === "Workshop"
+													? "bg-cyber-green/20 text-cyber-green"
+													: event.type === "Hackathon" ||
+													  event.type === "Orie	ntation"
+													? "bg-electric-blue/20 text-electric-blue"
+													: "bg-neon-green/20 text-neon-green"
+											}`}>
+											{event.type}
+										</div>
+										{event.success ? (
+											<CheckCircle className="w-6 h-6 text-cyber-green" />
+										) : (
+											<AlertCircle className="w-6 h-6 text-yellow-500" />
+										)}
 									</div>
-									{event.success ? (
-										<CheckCircle className="w-6 h-6 text-cyber-green" />
-									) : (
-										<AlertCircle className="w-6 h-6 text-yellow-500" />
-									)}
-								</div>
 
-								<h3 className="font-orbitron font-bold text-xl text-neon-green mb-3">
-									{event.title}
-								</h3>
+									<h3 className="font-orbitron font-bold text-xl text-neon-green mb-3">
+										{event.title}
+									</h3>
 
-								<div className="space-y-2 text-sm">
-									<div className="flex items-center text-glow-green/70">
-										<Calendar className="w-4 h-4 mr-2 text-cyber-green" />
-										{format(event.date, "MMM dd, yyyy")}
+									<div className="space-y-2 text-sm">
+										<div className="flex items-center text-glow-green/70">
+											<Calendar className="w-4 h-4 mr-2 text-cyber-green" />
+											{format(event.date, "MMM dd, yyyy")}
+										</div>
+										<div className="flex items-center text-glow-green/70">
+											<Users className="w-4 h-4 mr-2 text-cyber-green" />
+											{event.participants} participants
+										</div>
 									</div>
-									<div className="flex items-center text-glow-green/70">
-										<Users className="w-4 h-4 mr-2 text-cyber-green" />
-										{event.participants} participants
-									</div>
-								</div>
 
-								<div className="mt-6 pt-4 border-t border-cyber-green/30">
-									<span className="text-cyber-green font-exo font-bold text-sm">
-										✓ Successfully Completed
-									</span>
-								</div>
+									<div className="mt-6 pt-4 border-t border-cyber-green/30">
+										<span className="text-cyber-green font-exo font-bold text-sm">
+											✓ Successfully Completed
+										</span>
+									</div>
+								</Link>
 							</motion.div>
 						))}
 					</motion.div>
@@ -324,7 +334,9 @@ export const Events = () => {
 							Share your suggestions and help us create amazing learning
 							experiences.
 						</p>
-						<Link to="/submit-ideas"><button className="btn-cyber">Submit Event Idea</button></Link>
+						<Link to="/submit-ideas">
+							<button className="btn-cyber">Submit Event Idea</button>
+						</Link>
 					</div>
 				</motion.div>
 			</div>

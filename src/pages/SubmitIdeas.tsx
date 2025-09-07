@@ -133,7 +133,7 @@ export const SubmitIdeas = () => {
 							<CheckCircle className="w-12 h-12 text-cyber-green" />
 						</motion.div>
 
-						<h1 className="font-orbitron font-bold text-4xl text-neon-green mb-4">
+						<h1 className="font-orbitron font-bold text-4xl text-neon-cyan mb-4">
 							Idea Submitted!
 						</h1>
 
@@ -184,13 +184,13 @@ export const SubmitIdeas = () => {
 					transition={{ duration: 0.8 }}
 					className="text-center mb-16">
 					<div className="flex items-center justify-center mb-6">
-						<Lightbulb className="w-16 h-16 text-cyber-green mr-4" />
-						<h1 className="font-orbitron font-black text-5xl md:text-7xl text-glow animate-neon-pulse">
+						<Lightbulb className="w-16 h-16 text-electric-blue mr-4" />
+						<h1 className="font-orbitron font-black text-5xl md:text-7xl text-neon-cyan">
 							SUBMIT IDEAS
 						</h1>
-						<Lightbulb className="w-16 h-16 text-cyber-green  ml-4" />
+						<Lightbulb className="w-16 h-16 text-electric-blue  ml-4" />
 					</div>
-					<p className="text-xl text-glow-green/80 font-exo max-w-3xl mx-auto">
+					<p className="text-xl text-neutral-300 font-exo max-w-3xl mx-auto">
 						Share your innovative ECE project ideas with us. From IoT solutions
 						to circuit innovations, your creativity drives our club's
 						technological advancement.
@@ -202,20 +202,20 @@ export const SubmitIdeas = () => {
 					initial={{ opacity: 0, y: 40 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ delay: 0.3, duration: 0.8 }}
-					className="holo-card p-8">
+					className="bg-gradient-to-r rounded-md border border-blue-600 shadow-[0_0_10px_#2563EB80] from-dark-panel to-space-black p-8">
 					<form
 						onSubmit={handleSubmit}
 						className="space-y-8">
 						{/* Personal Information */}
 						<div className="space-y-6">
-							<h2 className="font-orbitron font-bold text-2xl text-neon-green flex items-center">
+							<h2 className="font-orbitron font-bold text-2xl text-sky-500 flex items-center">
 								<User className="w-6 h-6 mr-3" />
 								Personal Information
 							</h2>
 
 							<div className="grid md:grid-cols-2 gap-6">
 								<div>
-									<label className="block font-exo font-bold text-glow-green mb-2">
+									<label className="block font-exo font-bold text-slate-200 mb-2">
 										Full Name *
 									</label>
 									<input
@@ -223,14 +223,14 @@ export const SubmitIdeas = () => {
 										name="name"
 										value={formData.name}
 										onChange={handleInputChange}
-										className="w-full px-4 py-3 bg-dark-panel border border-cyber-green/30 rounded-lg text-glow-green font-exo focus:border-cyber-green focus:ring-2 focus:ring-cyber-green/20 transition-all duration-300"
+										className="w-full px-4 py-3 bg-dark-panel border border-sky-400/30 rounded-lg text-stone-200 font-exo focus:border-blue-600 focus:ring-2 focus:ring-cyber-green/20 transition-all duration-300"
 										placeholder="Enter your full name"
 										required
 									/>
 								</div>
 
 								<div>
-									<label className="block font-exo font-bold text-glow-green mb-2">
+									<label className="block font-exo font-bold text-slate-200 mb-2">
 										Email Address *
 									</label>
 									<input
@@ -238,7 +238,7 @@ export const SubmitIdeas = () => {
 										name="email"
 										value={formData.email}
 										onChange={handleInputChange}
-										className="w-full px-4 py-3 bg-dark-panel border border-cyber-green/30 rounded-lg text-glow-green font-exo focus:border-cyber-green focus:ring-2 focus:ring-cyber-green/20 transition-all duration-300"
+										className="w-full px-4 py-3 bg-dark-panel border border-sky-400/30 rounded-lg text-stone-200 font-exo focus:border-blue-600 focus:ring-2 focus:ring-cyber-green/20 transition-all duration-300"
 										placeholder="your.email@example.com"
 										required
 									/>
@@ -248,20 +248,20 @@ export const SubmitIdeas = () => {
 
 						{/* Idea Details */}
 						<div className="space-y-6">
-							<h2 className="font-orbitron font-bold text-2xl text-neon-green flex items-center">
+							<h2 className="font-orbitron font-bold text-2xl text-sky-500 flex items-center">
 								<Lightbulb className="w-6 h-6 mr-3" />
 								Your Idea
 							</h2>
 
 							<div>
-								<label className="block font-exo font-bold text-glow-green mb-2">
+								<label className="block font-exo font-bold text-slate-200 mb-2">
 									Category
 								</label>
 								<select
 									name="category"
 									value={formData.category}
 									onChange={handleInputChange}
-									className="w-full px-4 py-3 bg-dark-panel border border-cyber-green/30 rounded-lg text-glow-green font-exo focus:border-cyber-green focus:ring-2 focus:ring-cyber-green/20 transition-all duration-300">
+									className="w-full px-4 py-3 bg-dark-panel border border-sky-400/30 rounded-lg text-stone-200 font-exo focus:border-blue-600 focus:ring-2 focus:ring-cyber-green/20 transition-all duration-300">
 									<option value="">Select a category</option>
 									{categories.map((category) => (
 										<option
@@ -275,7 +275,7 @@ export const SubmitIdeas = () => {
 							</div>
 
 							<div>
-								<label className="block font-exo font-bold text-glow-green mb-2">
+								<label className="block font-exo font-bold text-slate-200 mb-2">
 									Idea Title *
 								</label>
 								<input
@@ -283,14 +283,14 @@ export const SubmitIdeas = () => {
 									name="ideaTitle"
 									value={formData.ideaTitle}
 									onChange={handleInputChange}
-									className="w-full px-4 py-3 bg-dark-panel border border-cyber-green/30 rounded-lg text-glow-green font-exo focus:border-cyber-green focus:ring-2 focus:ring-cyber-green/20 transition-all duration-300"
+									className="w-full px-4 py-3 bg-dark-panel border border-sky-400/30 rounded-lg text-stone-200 font-exo focus:border-blue-600 focus:ring-2 focus:ring-cyber-green/20 transition-all duration-300"
 									placeholder="Give your idea a compelling title"
 									required
 								/>
 							</div>
 
 							<div>
-								<label className="block font-exo font-bold text-glow-green mb-2">
+								<label className="block font-exo font-bold text-slate-200 mb-2">
 									Detailed Description *
 								</label>
 								<textarea
@@ -298,11 +298,11 @@ export const SubmitIdeas = () => {
 									value={formData.ideaDescription}
 									onChange={handleInputChange}
 									rows={8}
-									className="w-full px-4 py-3 bg-dark-panel border border-cyber-green/30 rounded-lg text-glow-green font-exo focus:border-cyber-green focus:ring-2 focus:ring-cyber-green/20 transition-all duration-300 resize-vertical"
+									className="w-full px-4 py-3 bg-dark-panel border border-sky-400/30 rounded-lg text-stone-200 font-exo focus:border-blue-600 focus:ring-2 focus:ring-cyber-green/20 transition-all duration-300 resize-vertical"
 									placeholder="Describe your idea in detail. Include the problem it solves, how it works, required components, implementation approach, and expected outcomes. The more detailed, the better we can evaluate and potentially implement your idea."
 									required
 								/>
-								<div className="mt-2 text-sm text-glow-green/60 font-exo">
+								<div className="mt-2 text-sm text-neutral-400/60 font-exo">
 									Minimum 100 characters. Current:{" "}
 									{formData.ideaDescription.length}
 								</div>
@@ -310,28 +310,28 @@ export const SubmitIdeas = () => {
 						</div>
 
 						{/* Submission Guidelines */}
-						<div className="holo-card p-6 bg-cyber-green/5">
-							<h3 className="font-orbitron font-bold text-lg text-neon-green mb-4 flex items-center">
+						<div className="bg-gradient-to-br from-dark-panel to-space-black p-6 border-blue-600 border shadow-[0_0_10px_#2563EB80] rounded-md">
+							<h3 className="font-orbitron font-bold text-lg text-blue-500 mb-4 flex items-center">
 								<FileText className="w-5 h-5 mr-3" />
 								Submission Guidelines
 							</h3>
-							<ul className="space-y-2 text-glow-green/70 font-exo text-sm">
+							<ul className="space-y-2 text-neutral-300/70 font-exo text-sm">
 								<li className="flex items-start">
-									<Zap className="w-4 h-4 mr-2 mt-0.5 text-cyber-green flex-shrink-0" />
+									<Zap className="w-4 h-4 mr-2 mt-0.5 text-blue-500/90 flex-shrink-0" />
 									Ideas should be related to Electronics & Communication
 									Engineering
 								</li>
 								<li className="flex items-start">
-									<Zap className="w-4 h-4 mr-2 mt-0.5 text-cyber-green flex-shrink-0" />
+									<Zap className="w-4 h-4 mr-2 mt-0.5 text-blue-500/90 flex-shrink-0" />
 									Include technical feasibility and resource requirements
 								</li>
 								<li className="flex items-start">
-									<Zap className="w-4 h-4 mr-2 mt-0.5 text-cyber-green flex-shrink-0" />
+									<Zap className="w-4 h-4 mr-2 mt-0.5 text-blue-500/90 flex-shrink-0" />
 									Innovative solutions addressing real-world problems are
 									preferred
 								</li>
 								<li className="flex items-start">
-									<Zap className="w-4 h-4 mr-2 mt-0.5 text-cyber-green flex-shrink-0" />
+									<Zap className="w-4 h-4 mr-2 mt-0.5 text-blue-500/90 flex-shrink-0" />
 									All submissions are reviewed by our technical committee
 								</li>
 							</ul>
@@ -367,38 +367,38 @@ export const SubmitIdeas = () => {
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ delay: 0.6, duration: 0.8 }}
 					className="mt-12 text-center">
-					<div className="holo-card p-6 max-w-2xl mx-auto">
-						<h3 className="font-orbitron font-bold text-xl text-neon-green mb-4">
+					<div className="bg-gradient-to-br from-dark-panel to-space-black p-6 border-blue-600 border shadow-[0_0_10px_#2563EB80] rounded-md max-w-2xl mx-auto">
+						<h3 className="font-orbitron font-bold text-xl text-gray-200 mb-4">
 							What Happens Next?
 						</h3>
 						<div className="grid md:grid-cols-3 gap-6 text-sm">
 							<div className="text-center">
-								<div className="w-8 h-8 bg-cyber-green/20 rounded-full flex items-center justify-center mx-auto mb-2">
-									<span className="font-orbitron font-bold text-cyber-green">
+								<div className="w-8 h-8 bg-sky-500/20 rounded-full flex items-center justify-center mx-auto mb-2">
+									<span className="font-orbitron font-bold text-white">
 										1
 									</span>
 								</div>
-								<p className="text-glow-green/70 font-exo">
+								<p className="text-neutral-300/70 font-exo">
 									Your idea is sent to our technical committee for review
 								</p>
 							</div>
 							<div className="text-center">
-								<div className="w-8 h-8 bg-cyber-green/20 rounded-full flex items-center justify-center mx-auto mb-2">
-									<span className="font-orbitron font-bold text-cyber-green">
+								<div className="w-8 h-8 bg-sky-500/20 rounded-full flex items-center justify-center mx-auto mb-2">
+									<span className="font-orbitron font-bold text-white">
 										2
 									</span>
 								</div>
-								<p className="text-glow-green/70 font-exo">
+								<p className="text-neutral-300/70 font-exo">
 									We evaluate feasibility and alignment with club goals
 								</p>
 							</div>
 							<div className="text-center">
-								<div className="w-8 h-8 bg-cyber-green/20 rounded-full flex items-center justify-center mx-auto mb-2">
-									<span className="font-orbitron font-bold text-cyber-green">
+								<div className="w-8 h-8 bg-sky-500/20 rounded-full flex items-center justify-center mx-auto mb-2">
+									<span className="font-orbitron font-bold text-white">
 										3
 									</span>
 								</div>
-								<p className="text-glow-green/70 font-exo">
+								<p className="text-neutral-300/70 font-exo">
 									Selected ideas become club projects with your involvement
 								</p>
 							</div>

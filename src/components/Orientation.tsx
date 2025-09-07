@@ -63,10 +63,10 @@ const Orientation = () => {
 			<motion.h1
 				initial={{ opacity: 0, y: -20 }}
 				animate={{ opacity: 1, y: 0 }}
-				transition={{ delay: 0.3 , duration: 0.5 }}
+				transition={{ delay: 0.3, duration: 0.5 }}
 				className="relative font-orbitron text-center text-2xl sm:text-3xl md:text-5xl p-5 text-white font-bold">
 				Anvitha Orientation
-        <div className="absolute bottom-0 h-0.5 w-full bg-gradient-to-r from-transparent via-electric-blue to-transparent"></div>
+				<div className="absolute bottom-0 h-0.5 w-full bg-gradient-to-r from-transparent via-electric-blue to-transparent"></div>
 			</motion.h1>
 			<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 p-5">
 				{photos.map((photo, index) => (

@@ -50,6 +50,7 @@
     "dotenv": "^17.2.2",
     "embla-carousel-react": "^8.6.0",
     "framer-motion": "^12.23.12",
+    "gsap": "^3.13.0",
     "imagekit": "^6.0.0",
     "imagekitio-react": "^4.3.0",
     "input-otp": "^1.4.2",

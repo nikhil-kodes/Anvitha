@@ -21,6 +21,9 @@
     --dark-panel: 240 15% 12%;
     --glow-green: 120 100% 80%;
     --anvitha-primary: 233 21% 10%;
+    --deep-teal: 164, 76%, 27%;
+    --fushia: 300, 100%, 50%;
+    --neon-cyan:185, 100%, 50%;
     /* Component Colors */
     --card: 240 15% 12%;
     --card-foreground: 120 100% 80%;
@@ -141,11 +144,11 @@
   
   /* Neon Buttons */
   .btn-cyber {
-    @apply px-6 py-3 bg-transparent border-2 border-cyber-green text-cyber-green font-orbitron font-bold rounded-lg relative overflow-hidden transition-all duration-300;
-    text-shadow: 0 0 10px hsl(var(--cyber-green));
+    @apply px-6 py-3 bg-transparent border-2 border-cyan-400 text-cyan-400 font-orbitron font-bold rounded-lg relative overflow-hidden transition-all duration-300;
+    /* text-shadow: 0 0 10px hsl(var(--neon-cyan)); */
     box-shadow: 
-      inset 0 0 10px hsl(var(--cyber-green) / 0.2),
-      0 0 20px hsl(var(--cyber-green) / 0.4);
+      inset 0 0 10px hsl(var(--neon-cyan) / 0.2),
+      0 0 20px hsl(var(--neon-cyan) / 0.4);
   }
   
   .btn-cyber::before {
@@ -155,7 +158,7 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, hsl(var(--cyber-green) / 0.4), transparent);
+    background: linear-gradient(90deg, transparent, hsl(var(--neon-cyan) / 0.4), transparent);
     transition: left 0.5s;
   }
   
@@ -164,10 +167,10 @@
   }
   
   .btn-cyber:hover {
-    @apply text-space-black bg-cyber-green;
+    @apply text-space-black bg-[hsl(var(--neon-cyan))];
     box-shadow: 
-      inset 0 0 20px hsl(var(--cyber-green) / 0.3),
-      0 0 40px hsl(var(--cyber-green) / 0.6);
+      inset 0 0 20px hsl(var(--neon-cyan) / 0.3),
+      0 0 40px hsl(var(--neon-cyan) / 0.6);
   }
   
   /* Gate Panels */
@@ -200,21 +203,6 @@
   }
 }
 
-@keyframes navy-pulse {
-  0%, 100% { 
-    text-shadow: 
-      0 0 5px hsl(var(--anvitha-primary)/0.8),
-      0 0 10px hsl(var(--anvitha-primary)/0.6),
-      0 0 15px hsl(var(--anvitha-primary)/0.4);
-  }
-  50% { 
-    text-shadow: 
-      0 0 10px hsl(var(--anvitha-primary)),
-      0 0 20px hsl(var(--anvitha-primary) / 0.8),
-      0 0 30px hsl(var(--anvitha-primary) / 0.6);
-  }
-}
-
 @keyframes glow-pulse {
   0%, 100% { 
     box-shadow: 0 0 20px hsl(var(--cyber-green) / 0.4);
@@ -228,13 +216,12 @@
   animation: neon-pulse 2s ease-in-out infinite;
 }
 
-.animate-navy-pulse {
-  animation: navy-pulse 2s ease-in-out infinite;
-}
 
 .animate-glow-pulse {
   animation: glow-pulse 2s ease-in-out infinite;
 }
+
+
 
 @layer base {
   * {
@@ -248,19 +235,19 @@
 
 @keyframes circulate {
   0% {
-    clip-path: inset(90% 0 0 0);
+    clip-path: inset(80% 0 0 0);
   }
   25% {
-    clip-path: inset(0 90% 0 0);
+    clip-path: inset(0 80% 0 0);
   }
   50% {
-    clip-path: inset(0 0 90% 0);
+    clip-path: inset(0 0 80% 0);
   }
   75% {
-    clip-path: inset(0 0 0 90%);
+    clip-path: inset(0 0 0 80%);
   }
   100% {
-    clip-path: inset(90% 0 0 0);
+    clip-path: inset(80% 0 0 0);
   }
 }
 
@@ -294,4 +281,13 @@
   mask-image: linear-gradient(to bottom, transparent 70%, black 100%);
   mask-repeat: no-repeat;
   mask-size: 100%;
+}
+
+@layer utilities {
+  .text-neon-cyan {
+    color: hsl(0, 0%, 100%);
+    text-shadow:
+      /* 0 0 5px hsl(185, 100%, 50%), */
+      0 0 10px hsl(185, 100%, 50%);
+  }
 }

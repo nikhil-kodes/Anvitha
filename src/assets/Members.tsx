@@ -9,10 +9,13 @@ import omil from "@/assets/omil.webp";
 import riya from "@/assets/riya.webp";
 import sanjay from "@/assets/sanjay.webp";
 import vartika from "@/assets/vartika.webp";
+import arbaz from "@/assets/arbaz.webp";
 
 export const Members = () => {
 	return {
 		Technical: {
+			description:
+				"From circuits to code, the Tech Team powers the ECE club with pure innovation ⚡🔧💻",
 			positionHolders: [
 				{
 					name: "Abhinav Aggarwal",
@@ -42,15 +45,27 @@ export const Members = () => {
 					socials: "https://www.linkedin.com/in/venktesh-052544326/",
 					year: "2nd",
 				},
-				{ name: "Rishab Yadav", socials: "", year: "2nd" },
-				{ name: "Harsh Pathak", socials: "", year: "2nd" },
+				{
+					name: "Rishab Yadav",
+					socials: "https://www.linkedin.com/in/rishabh-yadav-11424333a",
+					year: "2nd",
+				},
+				{
+					name: "Harsh Pathak",
+					socials: "https://www.linkedin.com/in/jekit-ahir-9b4478323",
+					year: "2nd",
+				},
 				{
 					name: "Shubham",
 					socials: "https://www.linkedin.com/in/shubham-bb8853381",
 					year: "2nd",
 				},
 				{ name: "Uday Tyagi", socials: "", year: "3rd" },
-				{ name: "Ajeet Kumar Singh", socials: "", year: "2nd" },
+				{
+					name: "Ajeet Kumar Singh",
+					socials: "https://www.linkedin.com/in/ajit-kumar-singh-1043a7318",
+					year: "2nd",
+				},
 				{
 					name: "Sneha Gupta",
 					socials: "http://www.linkedin.com/in/sneha-gupta-776b38312",
@@ -59,8 +74,35 @@ export const Members = () => {
 				{ name: "Akshat Srivastava", socials: "", year: "2nd" },
 			],
 		},
+		PR: {
+			description:
+				"The talkers, connectors, and vibe-makers—always building bridges 🌐✨",
+			positionHolders: [
+				{
+					name: "Avani Sharma",
+					socials: "",
+					year: "3rd",
+					image: avani,
+					post: "Director",
+				},
+				{
+					name: "Arbaz Nafees",
+					socials: "https://www.linkedin.com/in/arbaz-nafees-165ba0329",
+					year: "2nd",
+					image: arbaz,
+					post: "Co-Director",
+				},
+			],
+			executiveMembers: null,
+			members: [
+				{ name: "Jyoti Verma", socials: "", year: "2nd" },
+				{ name: "Anant Sahu", socials: "", year: "2nd" },
+			],
+		},
 
 		Management: {
+			description:
+				"The masterminds of chaos management—making everything look effortless 🎯📋",
 			positionHolders: [
 				{
 					name: "Divyam Srivastva",
@@ -69,20 +111,8 @@ export const Members = () => {
 					image: divyam,
 					post: "Director",
 				},
-				{
-					name: "Avani Sharma",
-					socials: "",
-					year: "3rd",
-					image: avani,
-					post: "Co-director",
-				},
 			],
 			executiveMembers: [
-				{
-					name: "Arbaz Nafees",
-					socials: "https://www.linkedin.com/in/arbaz-nafees-165ba0329",
-					year: "2nd",
-				},
 				{
 					name: "Shubhangi Gaur",
 					socials: "https://www.linkedin.com/in/shubhangi-gaur-77635b380",
@@ -96,7 +126,11 @@ export const Members = () => {
 						"https://www.linkedin.com/in/s%C3%A0n%C3%A7hit-gangw%C3%A0r-205801350",
 					year: "2nd",
 				},
-				{ name: "Akansh Yadav", socials: "", year: "2nd" },
+				{
+					name: "Akansha Yadav",
+					socials: "https://www.linkedin.com/in/akanksha-yadav07",
+					year: "2nd",
+				},
 				{
 					name: "Saksham Singhal",
 					socials: "https://www.linkedin.com/in/saksham-singhal-3b93852a7",
@@ -114,7 +148,11 @@ export const Members = () => {
 					year: "2nd",
 				},
 				{ name: "Abhiuday", socials: "", year: "2nd" },
-				{ name: "Ankesh Pandey", socials: "", year: "2nd" },
+				{
+					name: "Ankesh Pandey",
+					socials: "https://www.linkedin.com/in/ankesh-pandey-651843316",
+					year: "2nd",
+				},
 				{
 					name: "Kavyanjali",
 					socials: "https://www.linkedin.com/in/kavyanjali-raj-89a797354",
@@ -134,6 +172,8 @@ export const Members = () => {
 		},
 
 		DAM: {
+			description:
+				"Wordsmiths with a flair for storytelling—making content pop 📝💡",
 			positionHolders: [
 				{
 					name: "Riya Sahu",
@@ -162,18 +202,28 @@ export const Members = () => {
 					socials: "https://www.linkedin.com/in/rohit-devprofile",
 					year: "3rd",
 				},
-				{ name: "Shaswat Jaiswal", socials: "", year: "2nd" },
+				{
+					name: "Shaswat Jaiswal",
+					socials: "https://www.linkedin.com/in/shashwat-jaiswal-93216921a",
+					year: "2nd",
+				},
 				{
 					name: "Kartikeya Srivastav",
 					socials: "http://www.linkedin.com/in/kartikeya0441",
 					year: "2nd",
 				},
 				{ name: "Ananya Singhal", socials: "", year: "2nd" },
-				{ name: "Sourabh Mallick", socials: "", year: "2nd" },
+				{
+					name: "Sourabh Mallick",
+					socials: "https://in.linkedin.com/in/sourabh-mallick-78520b383",
+					year: "2nd",
+				},
 			],
 		},
 
 		Editorial: {
+			description:
+				"Wordsmiths with a flair for storytelling—making content pop 📝💡",
 			positionHolders: [
 				{
 					name: "Nidhi Chauhan",
@@ -184,13 +234,19 @@ export const Members = () => {
 				},
 				{
 					name: "Omil Shukla",
-					socials: "",
+					socials: "https://www.linkedin.com/in/omil-shukla-983742322",
 					year: "3rd",
 					image: omil,
 					post: "Co-director",
 				},
 			],
-			executiveMembers: [{ name: "Avika Saxena", socials: "", year: "3rd" }],
+			executiveMembers: [
+				{
+					name: "Avika Saxena",
+					socials: "https://www.linkedin.com/in/avika-saxena-689511279",
+					year: "3rd",
+				},
+			],
 			members: [
 				{
 					name: "Hardik Agarwal",
@@ -199,11 +255,17 @@ export const Members = () => {
 				},
 				{ name: "Anushka Singhal", socials: "", year: "2nd" },
 				{ name: "Vivek Chauhan", socials: "", year: "2nd" },
-				{ name: "Jekit Bambhaniya", socials: "", year: "2nd" },
+				{
+					name: "Jekit Bambhaniya",
+					socials: "https://www.linkedin.com/in/jekit-ahir-9b4478323",
+					year: "2nd",
+				},
 			],
 		},
 
 		Photography: {
+			description:
+				"The memory catchers—freezing epic moments in perfect frames 📸🌟",
 			positionHolders: [
 				{
 					name: "Aditi Raj",
@@ -230,7 +292,11 @@ export const Members = () => {
 				{ name: "Prashank Kr. Singh", socials: "", year: "2nd" },
 				{ name: "Dev", socials: "", year: "2nd" },
 				{ name: "Aniker Kumar", socials: "", year: "2nd" },
-				{ name: "Himanshu Gupta", socials: "", year: "2nd" },
+				{
+					name: "Himanshu Gupta",
+					socials: "https://www.linkedin.com/in/himanshu-gupta-066066383",
+					year: "2nd",
+				},
 			],
 		},
 	};

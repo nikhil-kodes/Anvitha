@@ -15,7 +15,7 @@ import NotFound from "./pages/NotFound";
 import Footer from "./components/Footer";
 import EventGallery from "./pages/EventGallery";
 import Orientation from "./components/Orientation";
-
+import CursorFollower from "@/components/ui/cursorFollower"
 
 const queryClient = new QueryClient();
 
@@ -43,6 +43,7 @@ const App = () => {
 			<TooltipProvider>
 				<Toaster />
 				<Sonner />
+				<CursorFollower />
 
 				{/* Gate Animation - Only show on first visit */}
 				{showGate && !hasVisited && (

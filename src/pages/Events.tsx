@@ -102,13 +102,13 @@ export const Events = () => {
 					transition={{ duration: 0.8 }}
 					className="text-center mb-16">
 					<div className="flex items-center justify-center mb-6">
-						<Calendar className="w-16 h-16 text-cyber-green mr-4" />
-						<h1 className="font-orbitron font-black text-5xl md:text-7xl text-glow animate-neon-pulse">
+						<Calendar className="w-16 h-16 text-electric-blue mr-4" />
+						<h1 className="font-orbitron font-black text-5xl md:text-7xl text-neon-cyan">
 							EVENTS
 						</h1>
-						<Calendar className="w-16 h-16 text-cyber-green ml-4" />
+						<Calendar className="w-16 h-16 text-electric-blue ml-4" />
 					</div>
-					<p className="text-xl text-glow-green/80 font-exo max-w-3xl mx-auto">
+					<p className="text-xl text-neutral-300 font-exo max-w-3xl mx-auto">
 						Discover exciting workshops, competitions, and seminars that push
 						the boundaries of ECE innovation
 					</p>
@@ -120,13 +120,13 @@ export const Events = () => {
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ delay: 0.3, duration: 0.6 }}
 					className="flex justify-center mb-12">
-					<div className="flex bg-dark-panel rounded-lg p-1 border border-cyber-green/30">
+					<div className="flex bg-dark-panel rounded-lg p-1 border border-blue-500/30">
 						<button
 							onClick={() => setActiveTab("upcoming")}
 							className={`px-8 py-3 rounded-lg font-orbitron font-bold transition-all duration-300 ${
 								activeTab === "upcoming"
-									? "bg-cyber-green text-space-black"
-									: "text-glow-green hover:text-cyber-green"
+									? "bg-blue-500 text-space-black"
+									: "text-blue-500/60 hover:text-sky-500"
 							}`}>
 							Upcoming Events
 						</button>
@@ -134,8 +134,8 @@ export const Events = () => {
 							onClick={() => setActiveTab("past")}
 							className={`px-8 py-3 rounded-lg font-orbitron font-bold transition-all duration-300 ${
 								activeTab === "past"
-									? "bg-cyber-green text-space-black"
-									: "text-glow-green hover:text-cyber-green"
+									? "bg-blue-500 text-space-black"
+									: "text-blue-500/60 hover:text-blue-500"
 							}`}>
 							Past Events
 						</button>
@@ -157,12 +157,12 @@ export const Events = () => {
 								transition={{ delay: 0.1 * index, duration: 0.6 }}
 								className={`holo-card p-6 relative overflow-hidden group ${
 									event.isHighlighted
-										? "border-cyber-green animate-glow-pulse"
+										? "border-blue-600 text-neon-cyan"
 										: ""
 								}`}>
 								{/* Active Event Glow */}
 								{event.isHighlighted && (
-									<div className="absolute inset-0 bg-gradient-to-r from-transparent via-cyber-green/10 to-transparent" />
+									<div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/10 to-transparent" />
 								)}
 
 								<div className="relative z-10">
@@ -253,7 +253,7 @@ export const Events = () => {
 						initial={{ opacity: 0, y: 30 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ delay: 0.8, duration: 0.5 }}
-						className="text-5xl font-orbitron text-center text-cyber-green font-black">
+						className="text-5xl font-orbitron text-center text-neon-cyan font-black">
 						Coming Soon...
 					</motion.div>
 				)}
@@ -271,7 +271,7 @@ export const Events = () => {
 								initial={{ opacity: 0, scale: 0.9 }}
 								animate={{ opacity: 1, scale: 1 }}
 								transition={{ delay: 0.1 * index, duration: 0.6 }}
-								className="holo-card p-6 group hover:shadow-[0_0_10px_white] transition-all duration-300">
+								className="border border-blue-600 bg-gradient-to-r rounded-md from-dark-panel to-space-black p-6 group hover:shadow-[0_0_10px_white] transition-all duration-300">
 								<Link to={event.link}>
 									<div className="flex items-center justify-between mb-4">
 										<div
@@ -286,29 +286,29 @@ export const Events = () => {
 											{event.type}
 										</div>
 										{event.success ? (
-											<CheckCircle className="w-6 h-6 text-cyber-green" />
+											<CheckCircle className="w-6 h-6 text-blue-500" />
 										) : (
 											<AlertCircle className="w-6 h-6 text-yellow-500" />
 										)}
 									</div>
 
-									<h3 className="font-orbitron font-bold text-xl text-neon-green mb-3">
+									<h3 className="font-orbitron font-bold text-xl text-white mb-3">
 										{event.title}
 									</h3>
 
 									<div className="space-y-2 text-sm">
-										<div className="flex items-center text-glow-green/70">
-											<Calendar className="w-4 h-4 mr-2 text-cyber-green" />
+										<div className="flex items-center text-neutral-300/80">
+											<Calendar className="w-4 h-4 mr-2 text-neutral-400" />
 											{format(event.date, "MMM dd, yyyy")}
 										</div>
-										<div className="flex items-center text-glow-green/70">
-											<Users className="w-4 h-4 mr-2 text-cyber-green" />
+										<div className="flex items-center text-neutral-300/80">
+											<Users className="w-4 h-4 mr-2 text-neutral-400" />
 											{event.participants} participants
 										</div>
 									</div>
 
-									<div className="mt-6 pt-4 border-t border-cyber-green/30">
-										<span className="text-cyber-green font-exo font-bold text-sm">
+									<div className="mt-6 pt-4 border-t border-sky-500">
+										<span className="text-slate-200 font-exo font-bold text-sm">
 											✓ Successfully Completed
 										</span>
 									</div>
@@ -324,12 +324,12 @@ export const Events = () => {
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ delay: 0.8, duration: 0.8 }}
 					className="mt-20 text-center">
-					<div className="holo-card p-8 max-w-2xl mx-auto">
+					<div className="border border-blue-600 bg-gradient-to-br from-dark-panel to-space-black rounded-lg shadow-[0_0_10px_#2563EB80] p-8 max-w-xl mx-auto">
 						<Zap className="w-12 h-12 text-cyber-green mx-auto mb-4" />
-						<h2 className="font-orbitron font-bold text-2xl text-neon-green mb-4">
+						<h2 className="font-orbitron font-bold text-2xl text-gray-100 mb-4">
 							Want to Suggest an Event?
 						</h2>
-						<p className="text-glow-green/80 font-exo mb-6">
+						<p className="text-gray-400/80 font-exo mb-6">
 							Have an innovative idea for a workshop, competition, or seminar?
 							Share your suggestions and help us create amazing learning
 							experiences.

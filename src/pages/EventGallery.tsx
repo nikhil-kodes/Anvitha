@@ -19,7 +19,7 @@ const EventGallery = () => {
 					initial={{ opacity: 0, y: -20 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ delay: 0.5 , duration: 0.5 }}
-					className="relative text-center text-2xl sm:text-3xl md:text-4xl font-bold text-white font-orbitron">
+					className="relative text-center text-2xl sm:text-3xl md:text-4xl font-bold text-neon-cyan font-orbitron">
 					Anvitha Photos Gallery
 					<div className="h-1 w-full absolute bottom-0 bg-gradient-to-r from-transparent via-electric-blue to-transparent"></div>
 				</motion.h1>
@@ -30,7 +30,7 @@ const EventGallery = () => {
 						<Link
 							key={index}
 							to="/gallery/orientation"
-							className="relative h-52 w-60 sm:h-72 sm:w-80 border border-neutral-500 rounded-lg hover:scale-105 transition duration-300 ">
+							className="relative h-52 w-60 sm:h-72 sm:w-80 border border-neutral-500 group overflow-hidden rounded-lg ">
 							<motion.div
 								initial={{ opacity: 0, y: 20 }}
 								animate={{ opacity: 1, y: 0 }}
@@ -38,7 +38,7 @@ const EventGallery = () => {
 								className="h-full w-full">
 								<img
 									src={event.photo}
-									className="h-full w-full object-cover rounded-lg"
+									className="h-full w-full object-cover rounded-lg group-hover:scale-105 transition duration-300 "
 								/>
 								<div className="absolute h-full w-full backdrop-blur-0 rounded-lg z-10 bg-gradient-to-b from-black/80 via-transparent  to-black to-90% top-0"></div>
 								<motion.div

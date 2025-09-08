@@ -1,13 +1,19 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 
 export default function CursorFollower() {
 	const cursorRef = useRef(null);
+	const [isMouseDevice, setIsMouseDevice] = useState(true);
 
 	useEffect(() => {
+		// Check if the device supports a fine pointer (like a mouse)
+		const hasMouse = window.matchMedia("(pointer: fine)").matches;
+		setIsMouseDevice(hasMouse);
+
+		if (!hasMouse) return; // ✅ Skip attaching events for touch screens
+
 		const el = cursorRef.current;
 		if (!el) return;
-		
 
 		const moveHandler = (e) => {
 			const { target, x, y } = e;
@@ -22,7 +28,7 @@ export default function CursorFollower() {
 				duration: 0.7,
 				ease: "power4",
 				opacity: isTargetLinkOrBtn ? 0.6 : 1,
-				scale: isTargetLinkOrBtn ? 3 : 1, // ✅ proper GSAP way
+				scale: isTargetLinkOrBtn ? 3 : 1,
 			});
 		};
 
@@ -32,7 +38,6 @@ export default function CursorFollower() {
 				opacity: 0,
 			});
 		};
-		
 
 		window.addEventListener("mousemove", moveHandler);
 		document.addEventListener("mouseleave", leaveHandler);
@@ -42,6 +47,9 @@ export default function CursorFollower() {
 			document.removeEventListener("mouseleave", leaveHandler);
 		};
 	}, []);
+
+	// ✅ Don't render at all on touch devices
+	if (!isMouseDevice) return null;
 
 	return (
 		<div

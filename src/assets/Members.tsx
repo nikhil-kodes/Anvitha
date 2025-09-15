@@ -5,11 +5,12 @@ import divyam from "@/assets/divyam.webp";
 import aditi from "@/assets/aditi.webp";
 import avani from "@/assets/avani.webp";
 import nidhi from "@/assets/nidhi.webp";
-import omil from "@/assets/omil.webp";
 import riya from "@/assets/riya.webp";
 import sanjay from "@/assets/sanjay.webp";
 import vartika from "@/assets/vartika.webp";
 import arbaz from "@/assets/arbaz.webp";
+import avika from "@/assets/avika.webp";
+import saksham from "@/assets/saksham.webp";
 
 export const Members = () => {
 	return {
@@ -94,10 +95,7 @@ export const Members = () => {
 				},
 			],
 			executiveMembers: null,
-			members: [
-				{ name: "Jyoti Verma", socials: "", year: "2nd" },
-				{ name: "Anant Sahu", socials: "", year: "2nd" },
-			],
+			members: [{ name: "Anant Sahu", socials: "", year: "2nd" }],
 		},
 
 		Management: {
@@ -111,11 +109,23 @@ export const Members = () => {
 					image: divyam,
 					post: "Director",
 				},
+				{
+					name: "Saksham Singhal",
+					socials: "https://www.linkedin.com/in/saksham-singhal-3b93852a7",
+					year: "3rd",
+					image: saksham,
+					post: "Co-Director",
+				},
 			],
 			executiveMembers: [
 				{
 					name: "Shubhangi Gaur",
 					socials: "https://www.linkedin.com/in/shubhangi-gaur-77635b380",
+					year: "2nd",
+				},
+				{
+					name: "Luzen Ali Pravez",
+					socials: "",
 					year: "2nd",
 				},
 			],
@@ -132,22 +142,16 @@ export const Members = () => {
 					year: "2nd",
 				},
 				{
-					name: "Saksham Singhal",
-					socials: "https://www.linkedin.com/in/saksham-singhal-3b93852a7",
-					year: "3rd",
-				},
-				{
 					name: "Harsh Raj",
 					socials: "https://www.linkedin.com/in/harsh-raj-singh-50379630a",
 					year: "2nd",
 				},
-				{ name: "Luzen Ali Parvez", socials: "", year: "2nd" },
 				{
 					name: "Pranjal Sood",
 					socials: "https://www.linkedin.com/in/pranjali-sood-67b843381",
 					year: "2nd",
 				},
-				{ name: "Abhiuday", socials: "", year: "2nd" },
+				{ name: "Abhiudaya", socials: "", year: "2nd" },
 				{
 					name: "Ankesh Pandey",
 					socials: "https://www.linkedin.com/in/ankesh-pandey-651843316",
@@ -233,17 +237,17 @@ export const Members = () => {
 					post: "Director",
 				},
 				{
-					name: "Omil Shukla",
-					socials: "https://www.linkedin.com/in/omil-shukla-983742322",
+					name: "Avika Saxena",
+					socials: "https://www.linkedin.com/in/avika-saxena-689511279",
 					year: "3rd",
-					image: omil,
+					image: avika,
 					post: "Co-director",
 				},
 			],
 			executiveMembers: [
 				{
-					name: "Avika Saxena",
-					socials: "https://www.linkedin.com/in/avika-saxena-689511279",
+					name: "Anushka Singhal",
+					socials: "",
 					year: "3rd",
 				},
 			],
@@ -253,7 +257,6 @@ export const Members = () => {
 					socials: "https://www.linkedin.com/in/hardik-agarwal-423a64346",
 					year: "2nd",
 				},
-				{ name: "Anushka Singhal", socials: "", year: "2nd" },
 				{ name: "Vivek Chauhan", socials: "", year: "2nd" },
 				{
 					name: "Jekit Bambhaniya",
@@ -291,7 +294,7 @@ export const Members = () => {
 				},
 				{ name: "Prashank Kr. Singh", socials: "", year: "2nd" },
 				{ name: "Dev", socials: "", year: "2nd" },
-				{ name: "Aniker Kumar", socials: "", year: "2nd" },
+				{ name: "Aniket Kumar", socials: "", year: "2nd" },
 				{
 					name: "Himanshu Gupta",
 					socials: "https://www.linkedin.com/in/himanshu-gupta-066066383",

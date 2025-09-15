@@ -1,6 +1,6 @@
 type ExecutiveMemberProps = {
   name: string;
-  link: string;
+  link?: string;
   image?: string; // optional → fallback to initials
 };
 
@@ -34,14 +34,14 @@ export default function ExecutiveMemberCard({ name, link, image }: ExecutiveMemb
         <h2 className="font-semibold text-lg text-gray-900">{name}</h2>
 
         {/* Connect Button */}
-        <a
+        {link!= "" &&<a
           href={link}
           target="_blank"
           rel="noopener noreferrer"
           className="mt-4 w-full py-2 bg-neutral-200 text-gray-800 font-medium rounded-xl shadow-sm hover:bg-blue-600 hover:text-white transition"
         >
           Connect
-        </a>
+        </a>}
       </div>
     </div>
   );

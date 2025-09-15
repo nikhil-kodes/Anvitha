@@ -9,76 +9,82 @@ const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
 const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
 const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+	"Access-Control-Allow-Origin": "*",
+	"Access-Control-Allow-Headers":
+		"authorization, x-client-info, apikey, content-type",
 };
 
 interface IdeaSubmission {
-  name: string;
-  email: string;
-  ideaTitle: string;
-  ideaDescription: string;
-  category: string;
+	name: string;
+	email: string;
+	ideaTitle: string;
+	ideaDescription: string;
+	category: string;
 }
 
 const handler = async (req: Request): Promise<Response> => {
-  // Handle CORS preflight requests
-  if (req.method === "OPTIONS") {
-    return new Response(null, { headers: corsHeaders });
-  }
+	// Handle CORS preflight requests
+	if (req.method === "OPTIONS") {
+		return new Response(null, { headers: corsHeaders });
+	}
 
-  if (req.method !== "POST") {
-    return new Response("Method not allowed", { 
-      status: 405, 
-      headers: corsHeaders 
-    });
-  }
+	if (req.method !== "POST") {
+		return new Response("Method not allowed", {
+			status: 405,
+			headers: corsHeaders,
+		});
+	}
 
-  try {
-    const ideaData: IdeaSubmission = await req.json();
-    
-    // Validate required fields
-    if (!ideaData.name || !ideaData.email || !ideaData.ideaTitle || !ideaData.ideaDescription) {
-      return new Response(
-        JSON.stringify({ error: "Missing required fields" }),
-        {
-          status: 400,
-          headers: { "Content-Type": "application/json", ...corsHeaders },
-        }
-      );
-    }
+	try {
+		const ideaData: IdeaSubmission = await req.json();
 
-    // Save to database
-    const { data: submission, error: dbError } = await supabase
-      .from('idea_submissions')
-      .insert({
-        name: ideaData.name,
-        email: ideaData.email,
-        idea_title: ideaData.ideaTitle,
-        idea_description: ideaData.ideaDescription,
-        category: ideaData.category || null,
-        status: 'pending'
-      })
-      .select()
-      .single();
+		// Validate required fields
+		if (
+			!ideaData.name ||
+			!ideaData.email ||
+			!ideaData.ideaTitle ||
+			!ideaData.ideaDescription
+		) {
+			return new Response(
+				JSON.stringify({ error: "Missing required fields" }),
+				{
+					status: 400,
+					headers: { "Content-Type": "application/json", ...corsHeaders },
+				},
+			);
+		}
 
-    if (dbError) {
-      console.error("Database error:", dbError);
-      return new Response(
-        JSON.stringify({ error: "Failed to save submission" }),
-        {
-          status: 500,
-          headers: { "Content-Type": "application/json", ...corsHeaders },
-        }
-      );
-    }
+		// Save to database
+		const { data: submission, error: dbError } = await supabase
+			.from("idea_submissions")
+			.insert({
+				name: ideaData.name,
+				email: ideaData.email,
+				idea_title: ideaData.ideaTitle,
+				idea_description: ideaData.ideaDescription,
+				category: ideaData.category || null,
+				status: "pending",
+			})
+			.select()
+			.single();
 
-    // Send confirmation email to submitter
-    const confirmationEmailResponse = await resend.emails.send({
-      from: "Anvitha ECE Club <noreply@anvithaclub.dev>",
-      to: [ideaData.email],
-      subject: "✅ Idea Submission Confirmation - Anvitha ECE Club",
-      html: `
+		if (dbError) {
+			console.error("Database error:", dbError);
+			return new Response(
+				JSON.stringify({ error: "Failed to save submission" }),
+				{
+					status: 500,
+					headers: { "Content-Type": "application/json", ...corsHeaders },
+				},
+			);
+		}
+
+		// Send confirmation email to submitter
+		const confirmationEmailResponse = await resend.emails.send({
+			from: "Anvitha ECE Club <noreply@resend.dev>",
+			to: [ideaData.email],
+			subject: "✅ Idea Submission Confirmation - Anvitha ECE Club",
+			html: `
         <!DOCTYPE html>
         <html>
         <head>
@@ -110,7 +116,9 @@ const handler = async (req: Request): Promise<Response> => {
             <div class="idea-box">
               <h3 style="color: #00ff41; margin-top: 0;">📋 Your Submission Details:</h3>
               <p><strong>Idea Title:</strong> ${ideaData.ideaTitle}</p>
-              <p><strong>Category:</strong> ${ideaData.category || 'General'}</p>
+              <p><strong>Category:</strong> ${
+								ideaData.category || "General"
+							}</p>
               <p><strong>Submitted on:</strong> ${new Date().toLocaleDateString()}</p>
               <p><strong>Submission ID:</strong> ${submission.id}</p>
             </div>
@@ -136,21 +144,21 @@ const handler = async (req: Request): Promise<Response> => {
         </body>
         </html>
       `,
-    });
+		});
 
-    if (confirmationEmailResponse.error) {
-      console.error("Email error:", confirmationEmailResponse.error);
-      // Don't fail the request if email fails, but log it
-    } else {
-      console.log("Confirmation email sent successfully");
-    }
+		if (confirmationEmailResponse.error) {
+			console.error("Email error:", confirmationEmailResponse.error);
+			// Don't fail the request if email fails, but log it
+		} else {
+			console.log("Confirmation email sent successfully");
+		}
 
-    // Send notification email to club administrators
-    const adminEmailResponse = await resend.emails.send({
-      from: "Anvitha ECE Club <noreply@anvithaclub.dev>",
-      to: ["anvithaclub@glbitm.ac.in"], // Replace with actual admin email
-      subject: `🚀 New Idea Submission: ${ideaData.ideaTitle}`,
-      html: `
+		// Send notification email to club administrators
+		const adminEmailResponse = await resend.emails.send({
+			from: "Anvitha ECE Club <noreply@resend.dev>",
+			to: ["anvithaclub@glbitm.ac.in"], // Replace with actual admin email
+			subject: `🚀 New Idea Submission: ${ideaData.ideaTitle}`,
+			html: `
         <!DOCTYPE html>
         <html>
         <head>
@@ -175,9 +183,13 @@ const handler = async (req: Request): Promise<Response> => {
             
             <div class="idea-box">
               <h3 style="color: #00ff41; margin-top: 0;">Submission Details:</h3>
-              <p><strong>Submitter:</strong> ${ideaData.name} (${ideaData.email})</p>
+              <p><strong>Submitter:</strong> ${ideaData.name} (${
+				ideaData.email
+			})</p>
               <p><strong>Title:</strong> ${ideaData.ideaTitle}</p>
-              <p><strong>Category:</strong> ${ideaData.category || 'General'}</p>
+              <p><strong>Category:</strong> ${
+								ideaData.category || "General"
+							}</p>
               <p><strong>Submitted:</strong> ${new Date().toLocaleString()}</p>
               <p><strong>ID:</strong> ${submission.id}</p>
               
@@ -192,34 +204,33 @@ const handler = async (req: Request): Promise<Response> => {
         </body>
         </html>
       `,
-    });
+		});
 
-    if (adminEmailResponse.error) {
-      console.error("Admin notification email error:", adminEmailResponse.error);
-    }
+		if (adminEmailResponse.error) {
+			console.error(
+				"Admin notification email error:",
+				adminEmailResponse.error,
+			);
+		}
 
-    return new Response(
-      JSON.stringify({
-        success: true,
-        message: "Idea submitted successfully",
-        submissionId: submission.id
-      }),
-      {
-        status: 200,
-        headers: { "Content-Type": "application/json", ...corsHeaders },
-      }
-    );
-
-  } catch (error) {
-    console.error("Error in submit-idea function:", error);
-    return new Response(
-      JSON.stringify({ error: "Internal server error" }),
-      {
-        status: 500,
-        headers: { "Content-Type": "application/json", ...corsHeaders },
-      }
-    );
-  }
+		return new Response(
+			JSON.stringify({
+				success: true,
+				message: "Idea submitted successfully",
+				submissionId: submission.id,
+			}),
+			{
+				status: 200,
+				headers: { "Content-Type": "application/json", ...corsHeaders },
+			},
+		);
+	} catch (error) {
+		console.error("Error in submit-idea function:", error);
+		return new Response(JSON.stringify({ error: "Internal server error" }), {
+			status: 500,
+			headers: { "Content-Type": "application/json", ...corsHeaders },
+		});
+	}
 };
 
 serve(handler);

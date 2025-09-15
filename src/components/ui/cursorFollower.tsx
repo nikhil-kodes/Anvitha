@@ -25,16 +25,16 @@ export default function CursorFollower() {
 			gsap.to(el, {
 				x: x - 15,
 				y: y - 15,
-				duration: 0.7,
-				ease: "power4",
+				duration: 0.5,
+				ease: "ease-in-out",
 				opacity: isTargetLinkOrBtn ? 0.6 : 1,
-				scale: isTargetLinkOrBtn ? 3 : 1,
+				scale: isTargetLinkOrBtn ? 2 : 1, // ✅ proper GSAP way
 			});
 		};
 
 		const leaveHandler = () => {
 			gsap.to(el, {
-				duration: 0.7,
+				duration: 1,
 				opacity: 0,
 			});
 		};
@@ -54,7 +54,7 @@ export default function CursorFollower() {
 	return (
 		<div
 			ref={cursorRef}
-			className="cursor-follower backdrop-invert"
+			className="cursor-follower backdrop-invert "
 			style={{
 				position: "fixed",
 				top: 0,
@@ -64,6 +64,7 @@ export default function CursorFollower() {
 				borderRadius: "50%",
 				pointerEvents: "none",
 				zIndex: 9999,
+				
 			}}
 		/>
 	);

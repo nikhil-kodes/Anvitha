@@ -3,31 +3,28 @@ import { Trophy, Star, Clock, Award } from "lucide-react";
 
 const hallOfFameMembers = [
 	{
-		name: "Dr. Rajesh Kumar",
+		name: "Satwik Srivastava",
 		role: "Founding President",
-		year: "2015-2017",
+		year: "2020-2021",
 		achievements: [
 			"Established club foundation",
-			"First robotics team",
-			"IEEE collaboration",
 		],
 		legacy: "Visionary leader who laid the foundation for technical excellence",
 	},
 	{
-		name: "Sanjay Mehta",
-		role: "President",
-		year: "2018-2019",
+		name: "Ranjan Mishra",
+		role: "Secretary",
+		year: "2020-2021",
 		achievements: [
-			"National competition winner",
 			"IoT workshop series",
 			"Industry partnerships",
 		],
 		legacy: "Pioneered industry-academia connections and practical learning",
 	},
 	{
-		name: "Neha Agarwal",
+		name: "Rakshit Upadhyay",
 		role: "President",
-		year: "2019-2020",
+		year: "2024-2025",
 		achievements: [
 			"Virtual event innovation",
 			"Coding bootcamps",
@@ -37,35 +34,32 @@ const hallOfFameMembers = [
 			"Transformed club operations during challenging times with innovation",
 	},
 	{
-		name: "Arpit Sharma",
-		role: "Technical Director",
-		year: "2020-2021",
+		name: "Tushar Sharma",
+		role: "Vice-President",
+		year: "2024-2025",
 		achievements: [
 			"PCB design workshops",
 			"Circuit simulation lab",
-			"Patent filing guidance",
 		],
 		legacy: "Elevated technical standards and research culture in the club",
 	},
 	{
-		name: "Pooja Iyer",
-		role: "President",
-		year: "2021-2022",
+		name: "Nikunj Rawat",
+		role: "Secretary",
+		year: "2024-2025",
 		achievements: [
-			"Smart city project",
-			"Women in tech initiatives",
-			"International collaborations",
+			"Winner of Several Drone making competitions",
+			"Drones enthusiaast"
 		],
 		legacy: "Champion of diversity and global perspective in technology",
 	},
 	{
-		name: "Abhishek Patel",
-		role: "Vice President",
-		year: "2022-2023",
+		name: "Nikhil",
+		role: "Joint Secretary",
+		year: "2024-2025",
 		achievements: [
 			"AI/ML study groups",
-			"Startup incubation",
-			"Publication mentorship",
+			"Conducted Drones making Competition"
 		],
 		legacy: "Fostered entrepreneurial mindset and research publications",
 	},

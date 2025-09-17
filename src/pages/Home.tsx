@@ -1,8 +1,10 @@
+import { useEffect, useCallback} from "react";
 import { motion } from "framer-motion";
 import { Zap, Target, Cpu, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "@/assets/anvithaLogo.webp";
 import hod from "@/assets/HOD.webp";
+import { fetchPhotos } from "@/lib/api"; 
 
 export const Home = () => {
 	const anvitha = [
@@ -42,6 +44,14 @@ export const Home = () => {
 			side: "left",
 		},
 	];
+
+	const startBackend = useCallback(async () => {
+			const { data, hasMore: more } = await fetchPhotos(0);
+		}, []);
+	
+	useEffect(() => {
+		startBackend();
+	}, []);
 
 	return (
 		<div className="min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
